@@ -4,6 +4,25 @@
 
 	</div>
 </div>
+
+<form id="calculate-route" name="calculate-route" action="#" method="get" >
+  <input type="hidden" id="from" name="from" required="required" placeholder="An address" size="30" />
+  <a class = "btn btn-primary" id="from-link" href="#">Start Riding</a>
+  <br />
+
+  <input type="hidden" id="to" name="to" required="required" placeholder="Another address" size="30" />
+  <a class = "btn btn-secondary" id="to-link" href="#">Finish Riding</a>
+  <br />
+
+  <input type="submit" value="See My AirCredit">
+</form>
+
+    <br>
+    Basic example for using the Distance Matrix.<br><br>
+    origin: [origin] <input id="orig" type="text" style="width:35em"><br><br>
+    destination: [destination] <input id="dest" type="text" style="width:35em"><br><br>
+    distance: [distance] <input id="dist" type="text" style="width:35em">
+
 <%= javascript_include_tag "geolocation" %>
 <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyASJ-Ja54wHh18bq14iOuyWNdMxOta_QRc&callback=showMap"></script>
 
