@@ -16,13 +16,23 @@
 
   <input type="submit" value="See My AirCredit">
 </form>
-
-    <br>
-    Basic example for using the Distance Matrix.<br><br>
-    origin: [origin] <input id="orig" type="text" style="width:35em"><br><br>
-    destination: [destination] <input id="dest" type="text" style="width:35em"><br><br>
-    distance: [distance] <input id="dist" type="text" style="width:35em">
-
+      <br>
+      Very simple HTML sample for using the Google Distance Matrix API.<br><br>
+      <table border="0">
+         <tr>
+            <td>Origin</td>
+            <td><input id="orig" type="text" style="width:35em"></td>
+         </tr>
+         <tr>
+            <td>Destination</td>
+            <td><input id="dest" type="text" style="width:35em"></td>
+         </tr>
+         <tr>
+            <td>Distance</td>
+            <td><input id="dist" type="text" style="width:35em"></td>
+         </tr>
+      </table>
 <%= javascript_include_tag "geolocation" %>
-<script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyASJ-Ja54wHh18bq14iOuyWNdMxOta_QRc&callback=showMap"></script>
+
+
 

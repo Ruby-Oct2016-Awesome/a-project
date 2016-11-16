@@ -103,3 +103,35 @@ function callback(response, status) {
         alert("Error: " + status);
     }
 }
+
+
+
+
+var origin = "Colombo, Srilanka",
+   destination = "Stockholm, Sweden",
+   service = new google.maps.DistanceMatrixService();
+
+service.getDistanceMatrix(
+   {
+       origins: [origin],
+       destinations: [destination],
+       travelMode: google.maps.TravelMode.WALKING,
+       avoidHighways: false,
+       avoidTolls: false
+   }, 
+   callback
+);
+
+function callback(response, status) {
+   var orig = document.getElementById("orig"),
+       dest = document.getElementById("dest"),
+       dist = document.getElementById("dist");
+
+   if(status=="OK") {
+       dest.value = response.destinationAddresses[0];
+       orig.value = response.originAddresses[0];
+       dist.value = response.rows[0].elements[0].distance.text;
+   } else {
+       alert("Error: " + status);
+   }
+}
