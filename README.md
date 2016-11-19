@@ -10,6 +10,7 @@ URL: **coming soon**
 
 ## Features
 
+(below feature is no longer there) 
 ### Cheap flight search
 * Flights to popular cities
     * find popular ONEWAY/RETURN flights from CITY
