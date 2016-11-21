@@ -2,7 +2,11 @@ class StationsController < ApplicationController
 	before_action :set_station, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@stations = Station.all
+		if params[:search].present?
+		  @stations = Station.near(params[:search], 50, :order => :distance)
+		else
+		  @stations = Station.all
+		end
 	end
 
 	def show
