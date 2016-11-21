@@ -1,5 +1,7 @@
 # AirTicket Watcher Service
 
+Steve Cho making changes. Out. 
+
 **AirTicket Watcher** is a web based service where you can search cheapest ticket for a specific route within specific time range. With registered account (community, standard or premium) user can subscribe for best deal of specific city or ticket price changes (up or down) based on previous search queries. With AI, user can talk with this service in natural language.
 
 Group Project: Andrew, Steve and Huy
