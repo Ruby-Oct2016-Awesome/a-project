@@ -1,6 +1,10 @@
 # AirTicket Watcher Service
 
+<<<<<<< HEAD
 hehehe hahaha
+=======
+Steve Cho making changes. Out. 
+>>>>>>> d35cb34c8a4f118dd12ecb2febe2b8e42317ed87
 
 **AirTicket Watcher** is a web based service where you can search cheapest ticket for a specific route within specific time range. With registered account (community, standard or premium) user can subscribe for best deal of specific city or ticket price changes (up or down) based on previous search queries. With AI, user can talk with this service in natural language.
 
@@ -10,10 +14,15 @@ Time spent: **xx** hours spent in total
 
 URL: **coming soon**
 
+I'm changing something on URL - Steve muddafucka
+
+I will change this again - STeve 
+
 configuration
 
 ## Features
 
+(below feature is no longer there) 
 ### Cheap flight search
 * Flights to popular cities
     * find popular ONEWAY/RETURN flights from CITY
