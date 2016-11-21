@@ -23,6 +23,7 @@
   <tbody>
     <% @stations.each do |station| %>
       <tr>
+        <td><%= station.name %></td>
         <td><%= station.address %></td>
         <td><%= station.latitude %></td>
         <td><%= station.longitude %></td>
