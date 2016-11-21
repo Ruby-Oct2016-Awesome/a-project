@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
 	resources :users
 
+	resources :stations
+
+	resources :trips
+
 end
