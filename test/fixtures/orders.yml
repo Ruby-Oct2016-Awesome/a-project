@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  voucher: one
+  user: one
+  quantity: 1
+
+two:
+  voucher: two
+  user: two
+  quantity: 1

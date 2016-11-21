@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  quantity: 1
+  discount_info: 1
+  aircredit_price: 1
+  date: 2016-11-21 16:45:02
+  description: MyText
+
+two:
+  name: MyString
+  type: 
+  quantity: 1
+  discount_info: 1
+  aircredit_price: 1
+  date: 2016-11-21 16:45:02
+  description: MyText
