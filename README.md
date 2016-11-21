@@ -8,6 +8,8 @@ Time spent: **xx** hours spent in total
 
 URL: **coming soon**
 
+configuration
+
 ## Features
 
 ### Cheap flight search

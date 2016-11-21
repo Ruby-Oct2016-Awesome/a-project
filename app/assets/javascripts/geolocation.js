@@ -71,45 +71,18 @@
         });
       });
 
-
-var origin = navigator.geolocation.getCurrentPosition(function(position) {
-	var lat = position.coords.latitude;
-	var lon = position.coords.longitude;
-});
-    destination = "Stockholm, Sweden",
-    service = new google.maps.DistanceMatrixService();
-
-service.getDistanceMatrix(
-    {
-        origins: [origin],
-        destinations: [destination],
-        travelMode: google.maps.TravelMode.DRIVING,
-        avoidHighways: false,
-        avoidTolls: false
-    }, 
-    callback
-);
-
-function callback(response, status) {
-    var orig = document.getElementById("orig"),
-        dest = document.getElementById("dest"),
-        dist = document.getElementById("dist");
-
-    if(status=="OK") {
-        orig.value = response.destinationAddresses[0];
-        dest.value = response.originAddresses[0];
-        dist.value = response.rows[0].elements[0].distance.text;
-    } else {
-        alert("Error: " + status);
-    }
-}
+var coords = {lat: "", lon: ""};
+function showPosition(position)
+{
+   coords.lat = position.coords.latitude;
+   coords.lon = position.coords.longitude;
+   var location = coords.lat + ", " + coords.lon
+};
 
 
-
-
-var origin = "Colombo, Srilanka",
-   destination = "Stockholm, Sweden",
-   service = new google.maps.DistanceMatrixService();
+var origin = "10.777730, 106.677176"
+var destination = "Stockholm, Sweden";
+var service = new google.maps.DistanceMatrixService();
 
 service.getDistanceMatrix(
    {
@@ -130,7 +103,7 @@ function callback(response, status) {
    if(status=="OK") {
        dest.value = response.destinationAddresses[0];
        orig.value = response.originAddresses[0];
-       dist.value = response.rows[0].elements[0].distance.text;
+       dist.value = response.rows[0].elements[0].distance.text + " AirCredit";
    } else {
        alert("Error: " + status);
    }
