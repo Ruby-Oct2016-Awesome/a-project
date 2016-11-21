@@ -8,10 +8,15 @@ Time spent: **xx** hours spent in total
 
 URL: **coming soon**
 
+I'm changing something on URL - Steve muddafucka
+
+I will change this again - STeve 
+
 configuration
 
 ## Features
 
+(below feature is no longer there) 
 ### Cheap flight search
 * Flights to popular cities
     * find popular ONEWAY/RETURN flights from CITY
