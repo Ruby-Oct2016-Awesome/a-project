@@ -13,6 +13,14 @@ class BicyclesController < ApplicationController
   end
 
   def create
+    @bicycle = Bicycle.create bicycle_params
+    if @bicycle.persisted?
+      flash[:success] = "Bicycle created successfully"
+      redirect_to bicycles_path
+    else
+      flash.now[:error] = "Error: #{@bicycle.errors.full_messages.to_sentence}"
+      render 'new'
+    end
   end
 
   def update
