@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trip</h1>
+
+<p>
+  <strong>Trip ID:</strong>
+  <%= @trip.id %>
+</p>
+
+<p>
+  <strong>User ID:</strong>
+  <%= @trip.user_id %>
+</p>
+
+<p>
+  <strong>Bicycle ID:</strong>
+  <%= @trip.bicycle_id %>
+</p>
+
+<p>
+  <strong>Starting Latitude:</strong>
+  <%= @trip.start_latitude %>
+</p>
+
+<p>
+  <strong>Starting Longitude:</strong>
+  <%= @trip.start_longitude %>
+</p>
+
+<p>
+  <strong>Ending Latitude:</strong>
+  <%= @trip.end_latitude %>
+</p>
+
+<p>
+  <strong>Ending Longitude:</strong>
+  <%= @trip.end_longitude %>
+</p>
+
+<p>
+  <strong>Distance Traveled (mi):</strong>
+  <%= Geocoder::Calculations.distance_between([@trip.start_latitude, @trip.start_longitude], [@trip.end_latitude, @trip.end_longitude]).round(2) %>
+</p>
+
+<p>
+  <strong> Started: </strong>
+  <%= @trip.started_at %>
+  </p>
+<p>
+  <strong> Completed: </strong>
+  <%= @trip.created_at %>
+  </p>
+
+  <div id="map" style="height:400px;width:400px;"></div>
+  <script>
+    function initMap() {
+      var directionsDisplay = new google.maps.DirectionsRenderer;
+      var directionsService = new google.maps.DirectionsService;
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {lat: <%= @trip.start_latitude %>, lng: <%= @trip.start_longitude %>}
+      });
+      directionsDisplay.setMap(map);
+
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
+    }
+
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+      directionsService.route({
+        origin: {lat: <%= @trip.start_latitude %>, lng: <%= @trip.start_longitude %>}, // Work
+        destination: {lat: <%= @trip.end_latitude %>, lng: <%=@trip.end_longitude %>}, // Gym
+        // Note that Javascript allows us to access the constant
+        // using square brackets and a string value as its
+        // "property."
+        travelMode: 'WALKING'
+      }, function(response, status) {
+        if (status == 'OK') {
+          directionsDisplay.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
+
+      
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPKgwz5gKHp7lA1Ix1KK5Y95iQR3iR7c&callback=initMap">
+  </script>
