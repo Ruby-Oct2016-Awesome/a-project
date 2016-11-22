@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :stations
   resources :trips
   resources :bicycles
+  resources :vouchers
 
 end

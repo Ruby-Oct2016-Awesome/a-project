@@ -1,16 +1,33 @@
 class VouchersController < ApplicationController
-	def index
-		@vouchers = Voucher.all
-	end
+  before_action :set_voucher, only: [:show, :edit, :update, :destroy]
 
-	def show
-	end
-	
+  def index
+    @vouchers = Voucher.all.order(created_at: :desc)
+  end
 
-	private
+  def new
+    @voucher = Voucher.new
+  end
 
-	def set_voucher
-		@voucher = Voucher.find(params[:id])
-	end
+  def show
+  end
+
+  def create
+  end
+
+  def update
+  end
+
+  def edit
+  end
+
+  def destroy
+  end
+
+  private
+
+  def set_voucher
+    @voucher = Voucher.find(params[:id])
+  end
 
 end
