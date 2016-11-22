@@ -35,6 +35,8 @@ class BicyclesController < ApplicationController
   end
 
   def destroy
+    @bicycle.destroy
+    redirect_to bicycles_path, notice: 'Bicycle was successfully destroyed.'
   end
 
   private
