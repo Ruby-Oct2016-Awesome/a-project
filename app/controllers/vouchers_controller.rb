@@ -13,6 +13,17 @@ class VouchersController < ApplicationController
   end
 
   def create
+    @voucher = Voucher.create voucher_params
+    # TODO: NEED TO REMOVE THIS LATER
+    @voucher.expired_at = Date.today + 60.days
+    @voucher.save!
+    if @voucher.persisted?
+      flash[:success] = "Voucher created successfully"
+      redirect_to vouchers_path
+    else
+      flash.now[:error] = "Error: #{@voucher.errors.full_messages.to_sentence}"
+      render 'new'
+    end
   end
 
   def update
