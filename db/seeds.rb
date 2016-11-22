@@ -41,3 +41,15 @@ trip_list = [
 trip_list.each do |user_id, start_lat, start_long, end_lat, end_long|
   Trip.create( user_id: user_id, start_latitude: start_lat, start_longitude: start_long, end_latitude: end_lat, end_longitude: end_long )
 end
+
+voucher_list = [
+  ["KFC", "Food", 200, 45, 500, Date.today + 60.days, "This is a very big discount."],
+  ["PT2000", "Shopping", 200, 45, 500, Date.today + 60.days, "This is a very big discount."],
+  ["Uber", "Transportation", 200, 45, 500, Date.today + 60.days, "This is a very big discount."],
+  ["Vietnam Airline", "Transportation", 200, 45, 500, Date.today + 60.days, "This is a very big discount."],
+  ["Pizza 4Ps", "Food", 200, 45, 500, Date.today + 60.days, "This is a very big discount."]
+]
+
+voucher_list.each do |name, voucher_type, quantity, discount_info, aircredit_price, expired_at, description|
+  Voucher.create(name: name, voucher_type: voucher_type, quantity: quantity, discount_info: discount_info, aircredit_price: aircredit_price, expired_at: expired_at, description: description)
+end
