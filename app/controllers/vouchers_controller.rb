@@ -38,6 +38,8 @@ class VouchersController < ApplicationController
   end
 
   def destroy
+    @voucher.destroy
+    redirect_to vouchers_path, notice: 'Voucher was successfully destroyed.'
   end
 
   private
