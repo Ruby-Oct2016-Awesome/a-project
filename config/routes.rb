@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
 	root 'home#index'
 
-	resources :sessions, only: [:new, :create]
+	delete "sign_out" => "sessions#destroy"
 
+	resources :sessions, only: [:new, :create, :destroy]
 	resources :users
 
 end
