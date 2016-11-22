@@ -1,0 +1,5 @@
+<h1>Editing Bicycle <%= @bicycle.id %></h1>
+<%= link_to 'Show', @bicycle %> | <%= link_to 'Back', bicycles_path %>
+<p>What can I edit? Maybe reset station info of bicycle? Should I do so?</p>
+<p>I don't understand, but magically, when I change this bicycle to another station, it will be removed from previous station. How cool!!!</p>
+<%= render 'form', bicycle: @bicycle %>
