@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Name: </strong>
+	<%= @station.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @station.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @station.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @station.longitude %>
+</p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@station.latitude}%2C#{@station.longitude}" %>
+
+<h3>Nearby locations</h3>
+<ul>
+<% for station in @station.nearbys(10) %>
+  <li><%= link_to station.address, station %> (<%= station.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_station_path(@station) %> |
+<%= link_to 'Back', stations_path %>
+
+<%# put in show.json.jbuilder: json.partial! "stations/station", station: @station %>
