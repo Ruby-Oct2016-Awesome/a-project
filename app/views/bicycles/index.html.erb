@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<h1>Bicycles</h1>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Bicycle ID</th>
+      <th>Station</th>
+      <th>Create at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bicycles.each do |bicycle| %>
+      <tr>
+        <td><%= bicycle.id %></td>
+        <td>
+          <%= bicycle.station == nil ? "Somewhere on earth" : bicycle.station.name %>
+        </td>
+        <td>
+          <%= time_ago_in_words(bicycle.created_at)%> ago
+        </td>
+        <td><%= link_to 'Show', bicycle %></td>
+        <td><%= link_to 'Edit', edit_bicycle_path(bicycle) %></td>
+        <td><%= link_to 'Destroy', bicycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Add Bicycle', new_bicycle_path %>

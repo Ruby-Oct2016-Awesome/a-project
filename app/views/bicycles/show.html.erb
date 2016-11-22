@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<h1>Detail of bicycle <%= @bicycle.id %></h1>
+<p>To be honest, this bicycles#show action seems to be a redundancy.</p>
+<p>
+  <strong>Bicycle ID: </strong>
+  <%= @bicycle.id %>
+</p>
+<p>
+  <strong>Station: </strong>
+  <%= @bicycle.station == nil ? "Somewhere on earth" : @bicycle.station.name %>
+</p>
+<p>
+  <strong>Create at: </strong>
+  <%= time_ago_in_words(@bicycle.created_at)%> ago
+</p>
+<%= link_to 'Edit', edit_bicycle_path(@bicycle) %> |
+<%= link_to 'Back', bicycles_path %>
