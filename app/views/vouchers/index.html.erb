@@ -1,0 +1,31 @@
+<h3>Vouchers</h3>
+
+<table>
+	<thead>
+		<tr>
+		  <th><%= Name %></th>
+      <th><%= Type %></th>
+      <th><%= Quantity %></th>
+      <th><%= Discount Info %></th>
+      <th><%= AirCredit Price %></th>
+      <th><%= Date %></th>
+      <th><%= Description %></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<% @vouchers.each do |voucher| %>
+
+			  <td><%= voucher.name %></td>
+        <td><%= voucher.type %></td>
+        <td><%= voucher.quantity %></td>
+        <td><%= voucher.discount_info %></td>
+        <td><%= voucher.aircredit_price %></td>
+        <td><%= voucher.date %></td>
+        <td><%= voucher.description %></td>
+        <td><%= link_to 'Show', voucher %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

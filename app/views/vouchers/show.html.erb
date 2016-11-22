@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Show</h3>
+
+<p>
+  <strong>Name: </strong>
+  <%= @voucher.name %>
+</p>
+
+<p>
+  <strong>Type: </strong>
+  <%= @voucher.type %>
+</p>
+
+<p>
+  <strong>Quantity: </strong>
+  <%= @voucher.quantity %>
+</p>
+
+<p>
+  <strong>Discount Info: </strong>
+  <%= @voucher.discount_info %>
+</p>
+
+<p>
+  <strong>AirCredit Price: </strong>
+  <%= @voucher.aircredit_price %>
+</p>
+
+<p>
+  <strong>Date: </strong>
+  <%= @voucher.date %>
+</p>
+
+<p>
+  <strong>Description: </strong>
+  <%= @voucher.description %>
+</p>
+
+<%= link_to "Vouchers", vouchers_path %>

@@ -21,4 +21,8 @@ class TripsController < ApplicationController
 	def set_trip
 		@trip = Trip.find(params[:id])
 	end
+
+	def trip_params
+	  params.require(:trip).permit(:start_latitude, :start_longitude, :end_latitude, :end_longitude)
+	end
 end

@@ -21,7 +21,7 @@ class StationsController < ApplicationController
 		@station = Station.create station_params
 		if @station.persisted?
 			flash[:success] = "Station created successfully"
-			redirect_to stations
+			redirect_to stations_path
 		else
 			flash.now[:error] = "Error: #{@station.errors.full_messages.to_sentence}"
 			render 'new'
