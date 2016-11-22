@@ -1,0 +1,62 @@
+<%= form_for(voucher) do |f| %>
+  <% if voucher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(voucher.errors.count, "error") %> prohibited this station from being saved:</h2>
+      <ul>
+        <% voucher.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :voucher_type %>
+      <%= f.text_field :voucher_type, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :quantity %>
+      <%= f.number_field :quantity, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :discount_info %>
+      <%= f.number_field :discount_info, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :aircredit_price %>
+      <%= f.number_field :aircredit_price, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :expired_at %> (for now this doesn't work yet T__T)
+      <%= f.text_field :expired_at, "data-provide" => 'datepicker', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.label :status %>
+      <%= f.text_field :status, class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.button 'Submit', class: 'btn btn-primary' %>
+</div>
+<% end %>

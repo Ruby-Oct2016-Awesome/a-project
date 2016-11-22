@@ -1,0 +1,23 @@
+<%= form_for(bicycle) do |f| %>
+  <% if bicycle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bicycle.errors.count, "error") %> prohibited this station from being saved:</h2>
+      <ul>
+        <% bicycle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label "Assign to station", class: 'form-control-label' %>
+    <br>
+    <%= f.select(:station_id) do %>
+      <% Station.all.each do |station| %>
+        <%= content_tag(:option, "#{station.name}", value: station.id) %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button 'Submit', class: 'btn btn-primary' %>
+</div>
+<% end %>

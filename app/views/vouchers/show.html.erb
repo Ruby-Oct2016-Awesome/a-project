@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h1>Detail of voucher <%= @voucher.name %></h1>
+<p>
+  <strong>Name: </strong>
+  <%= @voucher.name %>
+</p>
+<p>
+  <strong>Type: </strong>
+  <%= @voucher.voucher_type %>
+</p>
+<p>
+  <strong>Quantity: </strong>
+  <%= @voucher.quantity %>
+</p>
+<p>
+  <strong>%Off: </strong>
+  <%= @voucher.discount_info %>
+</p>
+<p>
+  <strong>AirCredit Price: </strong>
+  <%= @voucher.aircredit_price %>
+</p>
+<p>
+  <strong>Expired at: </strong>
+  <%= @voucher.expired_at.strftime("%d %b  %Y at %I:%M%p") %>
+</p>
+<p>
+  <strong>Description: </strong>
+  <%= @voucher.description %>
+</p>
+<p>
+  <strong>Status: </strong>
+  <%= @voucher.status %>
+</p>
+<%= link_to 'Edit', edit_voucher_path(@voucher) %> | <%= link_to 'Back', vouchers_path %>
