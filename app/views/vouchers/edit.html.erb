@@ -1,0 +1,4 @@
+<h1>Editing Voucher <%= @voucher.name %></h1>
+<%= link_to 'Show', @voucher %> | <%= link_to 'Back', vouchers_path %>
+<hr>
+<%= render 'form', voucher: @voucher %>

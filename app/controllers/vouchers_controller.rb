@@ -16,6 +16,11 @@ class VouchersController < ApplicationController
   end
 
   def update
+    if @voucher.update(voucher_params)
+      redirect_to @voucher, notice: 'Voucher was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def edit
@@ -28,6 +33,10 @@ class VouchersController < ApplicationController
 
   def set_voucher
     @voucher = Voucher.find(params[:id])
+  end
+
+  def voucher_params
+    params.require(:voucher).permit(:name, :voucher_type, :quantity, :discount_info, :aircredit_price, :description, :status)
   end
 
 end
