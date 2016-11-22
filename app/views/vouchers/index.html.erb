@@ -1,31 +1,30 @@
-<h3>Vouchers</h3>
-
-<table>
-	<thead>
-		<tr>
-		  <th><%= Name %></th>
-      <th><%= Type %></th>
-      <th><%= Quantity %></th>
-      <th><%= Discount Info %></th>
-      <th><%= AirCredit Price %></th>
-      <th><%= Date %></th>
-      <th><%= Description %></th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-			<% @vouchers.each do |voucher| %>
-
-			  <td><%= voucher.name %></td>
-        <td><%= voucher.type %></td>
+<p id="notice"><%= notice %></p>
+<h1>Vouchers</h1>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Quantity</th>
+      <th>%Off</th>
+      <th>Expired at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vouchers.each do |voucher| %>
+      <tr>
+        <td><%= voucher.name %></td>
+        <td><%= voucher.voucher_type %></td>
         <td><%= voucher.quantity %></td>
         <td><%= voucher.discount_info %></td>
-        <td><%= voucher.aircredit_price %></td>
-        <td><%= voucher.date %></td>
-        <td><%= voucher.description %></td>
+        <td><%= voucher.expired_at.strftime("%d %b  %Y at %I:%M%p") %></td>
         <td><%= link_to 'Show', voucher %></td>
-		</tr>
-		<% end %>
-	</tbody>
+        <td><%= link_to 'Edit', edit_voucher_path(voucher) %></td>
+        <td><%= link_to 'Destroy', voucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+<br>
+<%= link_to 'Add Voucher', new_voucher_path %>
