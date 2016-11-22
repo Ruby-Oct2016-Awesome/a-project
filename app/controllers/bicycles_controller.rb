@@ -16,6 +16,11 @@ class BicyclesController < ApplicationController
   end
 
   def update
+    if @bicycle.update(bicycle_params)
+      redirect_to @bicycle, notice: 'Station was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def edit
@@ -28,6 +33,10 @@ class BicyclesController < ApplicationController
 
   def set_bicycle
     @bicycle = Bicycle.find(params[:id])
+  end
+
+  def bicycle_params
+    params.require(:bicycle).permit(:station_id)
   end
 
 end
