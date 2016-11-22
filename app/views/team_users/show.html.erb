@@ -1,12 +1,8 @@
-<h1>Yours Teams</h1>
-<%= render partial: "teams", :locals => {team: @teams} %>
-
-
-<h1>Add Members</h1>
+<h1>Adding Members to <%= @team.name %></h1>
 <%= form_for [@team, @team_user] do |f| %>
 	<div class="form-group">
 		<%= f.label :user_id %>
-		<%= f.select :user_id, User.all.map{ |u| [u.name, u.id]}, include_blank: true %>
+		<%= f.select :user_id, User.where.not(id: current_user).map{ |u| [u.name, u.id]}, include_blank: true %>
 	</div>
-	<%= f.submit "Add friend to your team", class: 'btn btn-secondary' %>
+	<%= f.submit "Add Friend To Group", class: 'btn btn-secondary' %>
 <% end %>
