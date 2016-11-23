@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   delete "sign_out" => "sessions#destroy"
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users do
+  	resources :orders, only: [:show, :new, :create, :edit, :update, :destroy]
+  end
+  resources :orders, only: [:index, :show]
   resources :stations
   resources :trips
   resources :bicycles
