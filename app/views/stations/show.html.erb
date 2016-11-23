@@ -20,16 +20,55 @@
   <%= @station.longitude %>
 </p>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@station.latitude}%2C#{@station.longitude}" %>
+<div id="map" style="width:450px;height:300px"></div>
 
-<h3>Nearby locations</h3>
+<%#<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@station.latitude}%2C#{@station.longitude}" %>
+
+<h3>Nearby Bike Stations</h3>
 <ul>
 <% for station in @station.nearbys(10) %>
-  <li><%= link_to station.address, station %> (<%= station.distance.round(2) %> miles)</li>
+  <li><%= link_to station.name, station %> (<%= station.distance.round(2) %> miles)</li>
 <% end %>
 </ul>
 
 <%= link_to 'Edit', edit_station_path(@station) %> |
 <%= link_to 'Back', stations_path %>
+
+<script>
+      function initMap() {
+        var uluru = {lat: <%= @station.latitude %>, lng: <%= @station.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+
+        marker.setMap(map); 
+
+        google.maps.event.addListener(marker,'click',function() {
+
+          map.setZoom(18);
+          map.setCenter(marker.getPosition());
+          });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+
+        /*google.maps.event.addListener(marker,'click',function() {
+        	var infowindow = new google.maps.InfoWindow({
+        		content: <%= @station %>
+        	}); 
+        infowindow.open(map,marker);
+        });*/
+
+      }
+    </script>
 
 <%# put in show.json.jbuilder: json.partial! "stations/station", station: @station %>
