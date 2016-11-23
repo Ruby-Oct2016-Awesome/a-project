@@ -3,9 +3,9 @@ class StationsController < ApplicationController
 
 	def index
 		if params[:search].present?
-		  @stations = Station.near(params[:search], 50, :order => :distance)
+		  @stations = Station.search(params[:search], :order => :distance)
 		else
-		  @stations = Station.all
+		  @stations = Station.all.order('name')
 		end
 	end
 

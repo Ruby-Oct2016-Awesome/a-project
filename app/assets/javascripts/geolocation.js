@@ -1,4 +1,4 @@
-
+/*
       function calculateRoute(from, to) {
         // Center initialized to Naples, Italy
         var myOptions = {
@@ -108,3 +108,4 @@ function callback(response, status) {
        alert("Error: " + status);
    }
 }
+*/
