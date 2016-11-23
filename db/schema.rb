@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123092658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,4 +100,3 @@ ActiveRecord::Schema.define(version: 20161123092658) do
   add_foreign_key "trips", "users"
   add_foreign_key "users", "teams"
   add_foreign_key "users", "trips"
-end
