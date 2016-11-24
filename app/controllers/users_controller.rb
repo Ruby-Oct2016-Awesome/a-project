@@ -1,31 +1,46 @@
 class UsersController < ApplicationController
-	#below necessary?
-	def index
-	end
+  before_filter :authenticate_user, :only => [:code, :nearby, :voucher, :personal, :setting]
 
-	def new
-		@user = User.new
-	end
+  #below necessary?
+  def index
+  end
 
-	def show
-		@user = current_user
-	end
+  def new
+    @user = User.new
+  end
 
-	def create
-		@user = User.create user_params
-		if @user.persisted?
-			session[:user_id] = @user.id
-			flash[:success] = "Registered successfully"
-			redirect_to root_path
-		else
-			flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
-			render 'new'
-		end
-	end
+  def show
+    @user = current_user
+  end
 
+  def create
+    @user = User.create user_params
+    if @user.persisted?
+      session[:user_id] = @user.id
+      flash[:success] = "Registered successfully"
+      redirect_to root_path
+    else
+      flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
+      render 'new'
+    end
+  end
 
-	private
-	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation)
-	end
+  def code
+  end
+
+  def nearby
+  end
+
+  def voucher
+  end
+
+  def personal
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
 end

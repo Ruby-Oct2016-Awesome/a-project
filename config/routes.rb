@@ -7,7 +7,14 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
-  	resources :orders, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :orders, only: [:show, :new, :create, :edit, :update, :destroy]
+    collection do
+      get :code
+      get :nearby
+      get :voucher
+      get :personal
+      get :setting
+    end
   end
   resources :orders, only: [:index, :show]
   resources :stations
