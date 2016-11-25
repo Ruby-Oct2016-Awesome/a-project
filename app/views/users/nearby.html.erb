@@ -1,9 +1,188 @@
-<h1 class="display-1">Nearby Stations</h1>
-<p>In this page, you will show</p>
+<h3 class="display-1">Nearby Stations</h3>
+
+<h5>Map</h5>
+<div id="map" style="height:400px;width:600px;"></div>
+
 <ul>
   <li>Map</li>
+
   <li>Ask users for permission to have their current location</li>
   <li>Direction</li>
   <li>Instruction on what is needed when arriving</li>
   <li>...</li>
 </ul>
+
+	<script>
+	function initMap() {
+	  var map = new google.maps.Map(document.getElementById('map'), {
+	    center: {lat: 10.781915, lng: 106.69796},
+	    zoom: 14
+	  });
+	  var locations = <%= raw Station.pluck(:name, :latitude, :longitude) %>;
+
+	  var infoWindow = new google.maps.InfoWindow({map: map});
+
+	  // Try HTML5 geolocation.
+	  if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      var pos = {
+	        lat: position.coords.latitude,
+	        lng: position.coords.longitude
+	      };
+
+	      infoWindow.setPosition(pos);
+	      infoWindow.setContent('You are here');
+	      map.setCenter(pos);
+	    }, function() {
+	      handleLocationError(true, infoWindow, map.getCenter());
+	    });
+	  } else {
+	    // Browser doesn't support Geolocation
+	    handleLocationError(false, infoWindow, map.getCenter());
+	  }
+
+	  var marker, i;  
+
+	  for (i = 0; i < locations.length; i++) {
+	    marker = new google.maps.Marker({
+	      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	      //icon: icons.icon,
+	      map: map
+
+	      });
+
+	    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	      return function() {
+	        infowindow.setContent(locations[i][0]);
+	        infowindow.open(map, marker);
+	      }
+	    })(marker, i));
+	  }
+	  	// on click should have marker station but doesn't work
+	  	// also needs to have an internal function of based on all locations of stations, filters out nearedst 3 - 4
+	  	//also, can try to put custom marker
+
+	  	/*  below is example of using distance calculation
+var latitude1  = 39.46;
+var longitude1 = -0.36;
+var latitude2  = 40.40;
+var longitude2 = -3.68;
+
+var distance = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(latitude1,longitude1), new google.maps.LatLng(latitude2,longitude2));  
+	  	*/
+
+	}
+
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+	  infoWindow.setPosition(pos);
+	  infoWindow.setContent(browserHasGeolocation ?
+	                        'Error: The Geolocation service failed.' :
+	                        'Error: Your browser doesn\'t support geolocation.');
+	}
+	
+ // should put filter by top 3 nearest stations based on distance. 
+
+	/*function initMap() {
+		var loc {};
+		var geocoder = new google.maps.Geocoder();
+		if (google.loader.ClientLocation) {
+			loc.lat = google.loader.ClientLocation.latitude;
+			loc.lng = google.loader.ClientLocation.longitude;
+
+			var latlng = new google.maps.LatLng(loc.lat, loc.lng);
+			geocoder.geocode({'latLng': latlng}, function(results, status) {
+				if(status == google.maps.GeocoderStatus.OK) {
+					alert(results[0]['formatted_address']);
+				};
+			});
+		}
+	} */
+
+	/*
+  var im = 'http://www.robotwoods.com/dev/misc/bluecircle.png';
+  function locate(){
+		navigator.geolocation.getCurrentPosition(initialize,fail);
+  }
+
+  function initMap() {
+		var directionsDisplay = new google.maps.DirectionsRenderer;
+		var directionsService = new google.maps.DirectionsService;
+		var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+		var locations = <%= raw Station.pluck(:name, :latitude, :longitude) %>;
+
+
+
+   var map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 14,
+     center: myLatLng,
+     mapTypeId: google.maps.MapTypeId.ROADMAP
+   });
+
+		var userMarker = new google.maps.Marker({
+			position: myLatLng,
+			map: map,
+			icon: im
+		});
+
+   directionsDisplay.setMap(map);
+
+   var infowindow = new google.maps.InfoWindow();
+
+   var marker, i;  
+
+   for (i = 0; i < locations.length; i++) {
+     marker = new google.maps.Marker({
+       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+       map: map
+       });
+
+     google.maps.event.addListener(marker, 'click', (function(marker, i) {
+       return function() {
+         infowindow.setContent(locations[i][0]);
+         infowindow.open(map, marker);
+       }
+     })(marker, i));
+
+     google.maps.event.addListener(map, 'click', function(event) {
+       placeMarker(map, event.latLng);
+     });
+
+     function placeMarker(map, location) {
+       var marker = new google.maps.Marker({
+         position: location,
+         map: map
+       });
+
+       var infowindow = new google.maps.InfoWindow({
+         content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+       });
+
+       infowindow.open(map,marker);  //need to put it into temporary array or something
+     }
+
+
+   }
+ }*/
+
+
+ /* going to put in givens
+/*
+ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+   directionsService.route({
+     origin: {lat: 10.781915, lng: 106.69796}, // Work
+     destination: {lat: 10.780271, lng: 106.688098}, // Gym
+     travelMode: 'WALKING'
+   }, function(response, status) {
+     if (status == 'OK') {
+       directionsDisplay.setDirections(response);
+     } else {
+       window.alert('Directions request failed due to ' + status);
+     }
+   });
+ } */
+ 
+ </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPKgwz5gKHp7lA1Ix1KK5Y95iQR3iR7c&callback=initMap"
+    type="text/javascript"></script>

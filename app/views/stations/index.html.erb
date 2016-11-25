@@ -4,7 +4,7 @@
 
 <h3>Map of all our Stations</h3>
 
-<div id="map" style="width:500px;height:500px"></div>
+<div id="map" style="width:700px;height:500px"></div>
 
 
 <%= form_tag stations_path, :method => :get do %>
@@ -40,16 +40,6 @@
   </tbody>
 </table>
 
-<!doctype html>
-<html>
-  <head>
-    <style>
-      html, body, #map
-    </style>
-  </head>
-
-
-  <body>
   <script>
   function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -63,16 +53,48 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
+    var iconBase = '/app/images/'
+    var icons = {
+      station: {
+        icon: iconBase + 'bike_station.png'
+      }
+    };
+
+      var infoWindow = new google.maps.InfoWindow({map: map});
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You are here');
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+
     directionsDisplay.setMap(map);
 
     var infowindow = new google.maps.InfoWindow();
+
+
 
     var marker, i;  
 
     for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        icon: icons.icon,
         map: map
+
         });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -102,7 +124,7 @@
 
     }
   }
-  // going to put in givens
+  /* going to put in givens
  /*
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
@@ -121,11 +143,11 @@
   </script>
 
 
-  </body>
-</html>
 
 <br>
 
 <%= link_to 'New Station', new_station_path %> | 
 <%= link_to 'Trips', trips_path %>
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPKgwz5gKHp7lA1Ix1KK5Y95iQR3iR7c&callback=initMap"
+type="text/javascript"></script>
