@@ -22,13 +22,13 @@ station_list.each do |name, latitude, longitude|
 end
 
 user_list = [
-  ["test1", "test1@test.com", "test1"],
-  ["test2", "test2@test.com", "test2"],
-  ["test3", "test3@test.com", "test3"]
+  ["test1", "test1@test.com", "test1", "700"],
+  ["test2", "test2@test.com", "test2", "400"],
+  ["test3", "test3@test.com", "test3", "1000"]
 ]
 
-user_list.each do |name, email, password|
-  User.create( name: name, email: email, password: password )
+user_list.each do |name, email, password, aircredit|
+  User.create( name: name, email: email, password: password, air_credit: aircredit)
 end
 
 trip_list = [

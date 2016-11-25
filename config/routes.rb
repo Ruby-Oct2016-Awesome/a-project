@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   delete "sign_out" => "sessions#destroy"
   get "/pages/*page" => "pages#show" , as: "page"  # *page -> [page] as an array
   # get "/pages/:page" => "pages#show"  # :page as a signle value
+  get "list" => "pages#index"
+  
   resources :team
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do

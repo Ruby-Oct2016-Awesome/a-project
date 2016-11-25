@@ -9,6 +9,10 @@ class VouchersController < ApplicationController
     @voucher = Voucher.new
   end
 
+  def list
+    @vouchers = Voucher.all.order(created_at: :desc)
+  end
+
   def show
   end
 

@@ -1,0 +1,22 @@
+<% voucher.each do |t| %>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= t.name %></h4>
+    <p class="card-text"><%= t.voucher_type %></p>
+    <p class="card-text">Total vouchers <%= t.quantity%></p>
+    <p class="card-text">AirCredit: <%= t.aircredit_price %></p>
+    <p class="card-text"><%= t.discount_info %></p>
+    <p class="card-text"><%= t.description %></p>    
+    <p class="card-text"><%= t.expired_at %></p>
+    <% if current_user %>
+	    <% unless current_user.air_credit.to_f < t.aircredit_price %>
+	    <%= link_to 'Redeem', root_path, class: 'btn btn-primary' %>
+	    <% else %>
+	    <p class="card-text">Not enough aircredit</p>
+	    <% end %>
+	  <% end %>
+    <%= link_to 'Purchase without Aircredit', root_path, class: 'btn btn-primary'
+    %>
+   </div>
+</div>
+<% end %>

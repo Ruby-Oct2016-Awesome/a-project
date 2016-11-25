@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.create order_params
 		if @station.persisted?
-			flash[:success] = "Station created successfully"
-			redirect_to stations_path
+			flash[:success] = "Order was successfully created"
+			redirect_to orders_path
 		else
 			flash.now[:error] = "Error: #{@station.errors.full_messages.to_sentence}"
 			render 'new'
