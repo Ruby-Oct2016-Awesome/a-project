@@ -54,6 +54,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.alpha5'
 
 gem 'bootstrap-datepicker-rails'
+gem 'rqrcode'
+gem 'rqrcode_png'
+gem 'mini_magick'	
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  require 'rqrcode'
+
   before_filter :authenticate_user, :only => [:code, :nearby, :voucher, :personal, :setting]
+
+  
 
   #below necessary?
   def index
@@ -26,6 +30,8 @@ class UsersController < ApplicationController
   end
 
   def code
+    @user = current_user
+    @qr = RQRCode::QRCode.new(@user.email + @user.created_at.to_s, :size => 8, :level => :h )
   end
 
   def nearby
