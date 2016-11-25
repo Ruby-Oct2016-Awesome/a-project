@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123092658) do
+ActiveRecord::Schema.define(version: 20161125104800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,11 +79,11 @@ ActiveRecord::Schema.define(version: 20161123092658) do
     t.string   "password_digest"
     t.string   "name"
     t.string   "credit_card"
-    t.string   "air_credit"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "trip_id"
     t.integer  "team_id"
+    t.integer  "air_credit"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
     t.index ["trip_id"], name: "index_users_on_trip_id", using: :btree

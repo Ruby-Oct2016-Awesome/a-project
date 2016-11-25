@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/pages/*page" => "pages#show" , as: "page"  # *page -> [page] as an array
   # get "/pages/:page" => "pages#show"  # :page as a signle value
   get "list" => "pages#index"
-  
+
   resources :team
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
@@ -18,10 +18,20 @@ Rails.application.routes.draw do
       get :setting
     end
   end
-  resources :orders, only: [:index, :show]
+  resources :orders
   resources :stations
   resources :trips
   resources :bicycles
-  resources :vouchers
+  resources :vouchers do
+    resources :orders
+    collection do 
+      get :instructions
+      get :my_vouchers
+    end
+    member do
+      get :redeem
+      get :purchase
+    end
+  end
 
 end

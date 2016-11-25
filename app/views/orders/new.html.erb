@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= @voucher.name %></h4>
+    <p class="card-text"><%= @voucher.voucher_type %></p>
+    <p class="card-text">Total vouchers <%= @voucher.quantity%></p>
+    <p class="card-text">AirCredit: <%= @voucher.aircredit_price %></p>
+    <p class="card-text"><%= @voucher.discount_info %></p>
+    <p class="card-text"><%= @voucher.description %></p>    
+    <p class="card-text"><%= @voucher.expired_at %></p>
+    <%= form_for @order do |f| %>	
+    	<%= f.hidden_field :user_id, value: current_user.id %>
+    	<%= f.hidden_field :voucher_id, value: @voucher.id %>
+			<%= f.submit "Use AirCredit", class: "btn btn-primary" %>
+		<% end %>
+   </div>
+</div>

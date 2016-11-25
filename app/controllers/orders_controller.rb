@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
-	before_action :set_order, only: [:show, :new, :create, :destroy]
-	before_action :set_user, only: [:new, :create, :destroy]
+	before_action :set_order, only: [:show, :destroy]
 
 	def index
-		@orders = Order.all
+		@vouchers = current_user.vouchers
 	end
 
 	def show
@@ -11,17 +10,27 @@ class OrdersController < ApplicationController
 	end
 
 	def new
+		@voucher = Voucher.find(params[:voucher_id])
 		@order = Order.new
 	end
 
+	# def redeem
+	# 	@voucher = Voucher.find(params[:voucher_id])
+	# 	@order = Order.new
+	# end
+
+	def purchase
+	end
+
 	def create
+		# @voucher = Voucher.find(params[:voucher_id])
 		@order = Order.create order_params
-		if @station.persisted?
-			flash[:success] = "Order was successfully created"
-			redirect_to orders_path
+		if @order.persisted?
+			flash[:success] = "Your voucher is added to your voucher list"
+			redirect_to vouchers_path
 		else
-			flash.now[:error] = "Error: #{@station.errors.full_messages.to_sentence}"
-			render 'new'
+			flash[:error] = "You're only allowed to redeem a voucher once!"
+			redirect_to vouchers_path
 		end
 	end
 
@@ -44,10 +53,6 @@ class OrdersController < ApplicationController
 
 	def set_order
 		@order = Order.find(params[:id])
-	end
-
-	def set_user
-		current_user = User.find(params[:user_id])
 	end
 
 end

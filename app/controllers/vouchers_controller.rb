@@ -9,6 +9,20 @@ class VouchersController < ApplicationController
     @voucher = Voucher.new
   end
 
+  def redeem
+    @voucher = Voucher.find(params[:id])
+  end
+
+  def purchase
+    @voucher = Voucher.find(params[:id])
+  end
+
+  def my_voucher
+  end
+
+  def instructions
+  end
+
   def list
     @vouchers = Voucher.all.order(created_at: :desc)
   end
