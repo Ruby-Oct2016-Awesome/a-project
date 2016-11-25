@@ -5,13 +5,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :authenticate_user
 
   def current_user
-  	User.find_by(id: session[:user_id])
+    return @current_user if @current_user
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
   end
 
   def authenticate_user
-  	unless current_user
-  		flash.now[:notice] = "You must be logged in to get full access to our tickets!" 
-  		redirect_to sessions_path(:new)
-  	end
+    unless current_user
+      flash.now[:notice] = "You must be logged in to get full access to our tickets!"
+      redirect_to sessions_path(:new)
+    end
   end
 end

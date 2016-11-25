@@ -1,18 +1,23 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-
   delete "sign_out" => "sessions#destroy"
-	get 'my_team' => "teams#my_team"
-
-	resources :sessions, only: [:new, :create, :destroy]
-	resources :teams do
-		resources :team_users
-	end
-
-	resources :teams
-	resources :users
-
+  get "/pages/*page" => "pages#show" , as: "page"  # *page -> [page] as an array
+  # get "/pages/:page" => "pages#show"  # :page as a signle value
+  resources :team
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users do
+    resources :orders, only: [:show, :new, :create, :edit, :update, :destroy]
+    collection do
+      get :code
+      get :nearby
+      get :voucher
+      get :personal
+      get :setting
+    end
+  end
+  resources :orders, only: [:index, :show]
+  resources :stations
   resources :trips
   resources :bicycles
   resources :vouchers

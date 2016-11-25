@@ -1,5 +1,9 @@
-<h1>Home#index</h1>
-<div id="map-canvas" style="width: 400px; height: 400px">
+<% if current_user %>
+  <%= render 'signin' %>
+<% else %>
+  <%= render 'signout' %>
+<% end %>
+<!-- <div id="map-canvas" style="width: 400px; height: 400px">
   <div id= "map">
   </div>
 </div>
@@ -28,4 +32,4 @@ Very simple HTML sample for using the Google Distance Matrix API.<br>
     <td>Earned AirCredit Points</td>
     <td><input id="dist" type="text" style="width:35em"></td>
   </tr>
-</table>
+</table> -->
