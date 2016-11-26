@@ -26,7 +26,7 @@
 
 <h3>Nearby Bike Stations</h3>
 <ul>
-<% for station in @station.nearbys(10) %>
+<% for station in @station.nearbys(3) %>
   <li><%= link_to station.name, station %> (<%= station.distance.round(2) %> miles)</li>
 <% end %>
 </ul>
@@ -44,6 +44,7 @@
         var marker = new google.maps.Marker({
           position: uluru,
           map: map
+          //icon: '/images/bike_station.png'
         });
 
         marker.setMap(map); 
@@ -52,23 +53,17 @@
 
           map.setZoom(18);
           map.setCenter(marker.getPosition());
+          /*var infowindow = new google.maps.InfoWindow({
+            content: <%= @station.name %>
           });
-
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(locations[i][0]);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
-
-        /*google.maps.event.addListener(marker,'click',function() {
-        	var infowindow = new google.maps.InfoWindow({
-        		content: <%= @station %>
-        	}); 
-        infowindow.open(map,marker);
-        });*/
+          infowindow.open(map,marker);*/
+        
+        });
 
       }
     </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPKgwz5gKHp7lA1Ix1KK5Y95iQR3iR7c&callback=initMap"
+    type="text/javascript"></script>
 
 <%# put in show.json.jbuilder: json.partial! "stations/station", station: @station %>
