@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require turbolinks
+//= require geolocation
 //= require_tree .
