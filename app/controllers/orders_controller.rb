@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
 
 	def new
 		@voucher = Voucher.find(params[:voucher_id])
+		# new_aircredit = current_user.air_credit - @voucher.aircredit_price
+		# current_user.update_attribute(air_credit: new_aircredit)
 		@order = Order.new
 	end
 
@@ -26,6 +28,7 @@ class OrdersController < ApplicationController
 		# @voucher = Voucher.find(params[:voucher_id])
 		@order = Order.create order_params
 		if @order.persisted?
+			@order.user.update_attributes(air_credit: (@order.user.air_credit - @order.voucher.aircredit_price))
 			flash[:success] = "Your voucher is added to your voucher list"
 			redirect_to vouchers_path
 		else
