@@ -3,6 +3,10 @@ class VouchersController < ApplicationController
 
   def index
     @vouchers = Voucher.all.order(created_at: :desc)
+    # if Order.where(user_id: current_user.id).exists?(['voucher_id ILIKE ?', '%#{@vouchers.map(&:id)}%'])
+    #   flash.now[:error] = "You can't have more than the same voucher"
+    #   redirect_to vouchers_path
+    # end
   end
 
   def new
