@@ -1,6 +1,6 @@
 <h1>Update Credit Card</h1>
 
-<%= form_for @user, url: update_credit_card_path, html: {method: "patch"} do |f| %>
+<%= form_for current_user, url: update_credit_card_path, html: {method: "patch"} do |f| %>
   <div class="field">
     <%= f.label :credit_card, "Credit card number" %><br />
     <%= f.text_field :credit_card %>

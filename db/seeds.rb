@@ -24,7 +24,11 @@ end
 user_list = [
   ["test1", "test1@test.com", "test1", 2500],
   ["test2", "test2@test.com", "test2", 2500],
-  ["test3", "test3@test.com", "test3", 2500]
+  ["test3", "test3@test.com", "test3", 2500],
+  ["test4", "test4@test.com", "test4", 2200],
+  ["test5", "test5@test.com", "test5", 2100],
+  ["test6", "test6@test.com", "test6", 2000],
+  ["test7", "test7@test.com", "test7", 1900],
 ]
 
 user_list.each do |name, email, password, aircredit|

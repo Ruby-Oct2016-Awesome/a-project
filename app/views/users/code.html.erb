@@ -5,12 +5,12 @@
   	<img src=<%="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=#{@user.email + @user.created_at.to_s}&choe=UTF-8"%> alt="QR code">
   </div>
   <div class="card-block">
-    <h4 class="card-title"> <%= @user.name %> </h4>
+    <h4 class="card-title"> <%= current_user.name %> </h4>
   </div>
 
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= @user.email %> </li>
-    <li class="list-group-item"><strong>Member since: </strong> <%= @user.created_at.strftime("%B %d, %Y") %> </li>
+    <li class="list-group-item"><%= current_user.email %> </li>
+    <li class="list-group-item"><strong>Member since: </strong> <%= current_user.created_at.strftime("%B %d, %Y") %> </li>
     <li class="list-group-item">What else goes here</li>
   </ul>
   <div class="card-block">
