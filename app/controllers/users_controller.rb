@@ -37,16 +37,58 @@ class UsersController < ApplicationController
   def nearby
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      session[:user_id] = @user.id
+      flash[:success] = "Password successfully updated"
+      redirect_to root_path
+    else
+      flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
+      render 'edit'
+    end
+  end
+
+  def edit_credit_card
+    @user = current_user
+  end
+
+  def update_credit_card
+    @user = current_user
+    if @user.update(user_cc_params)
+      flash[:success] = "Credit Card successfully updated"
+      redirect_to setting_users_path
+    else
+      flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
+      render 'edit_credit_card'
+    end
+  end
+
+
   def voucher
   end
 
   def personal
   end
 
+  def setting
+    if current_user.credit_card = nil
+      redirect_to edit_credit_card_path(id: @current_user.id)
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def user_cc_params
+    params.require(:user).permit(:credit_card)
   end
 
 end

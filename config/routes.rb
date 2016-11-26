@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   resources :bicycles
   resources :vouchers
 
+  get 'edit_credit_card' => "users#edit_credit_card"
+  patch 'update_credit_card' => "users#update_credit_card"
 end
