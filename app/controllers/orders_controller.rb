@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-
 	end
 
 	def new
@@ -25,9 +24,6 @@ class OrdersController < ApplicationController
 	# 	@voucher = Voucher.find(params[:voucher_id])
 	# 	@order = Order.new
 	# end
-
-	def purchase
-	end
 
 	def create
 		# @voucher = Voucher.find(params[:voucher_id])

@@ -10,12 +10,12 @@
     <p class="card-text"><%= t.expired_at %></p>
     <% if current_user %>
 	    <% unless current_user.air_credit < t.aircredit_price %>
-	    <%= link_to 'Redeem', new_voucher_order_path(t), class: 'btn btn-primary' %>
+	    <%= link_to 'Use AirCredit', new_voucher_order_path(t), class: 'btn btn-primary' %>
 	    <% else %>
 	    <p class="card-text">Not enough aircredit</p>
 	    <% end %>
 	  <% end %>
-    <%= link_to 'Purchase without Aircredit', purchase_voucher_path(t), class: 'btn btn-primary'
+    <%= link_to 'Redeem without Aircredit', redeem_voucher_path(t), class: 'btn btn-primary'
     %>
    </div>
 </div>
