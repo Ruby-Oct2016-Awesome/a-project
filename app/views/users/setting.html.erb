@@ -1,8 +1,14 @@
 <h1 class="display-1">Personal</h1>
 <p>In this page, you will</p>
-<ul>
-  <li>Change Password</li>
-  <li>Instructions</li>
-  <li>Payment method</li>
-  <li>...</li>
-</ul>
+
+<% if current_user %>
+	<ul>
+		<li><strong>Instructions: </strong></li>
+		<li>This goes to <%= link_to "code", code_users_path%></li>
+		<li>Upon login, there should be a card display of all the vouchers</li>
+	</ul>
+	  <%= link_to "Change Password", edit_user_path(id: @current_user.id) %> |
+	  <%= link_to "Update Credit Card Information", edit_credit_card_path(id: @current_user.id) %> | <%= link_to "Sign out", sign_out_path, method: 'delete' %>
+<% else %>
+	  <li><%= link_to "Sign up", new_user_path, method: 'delete' %></li>
+<% end %>

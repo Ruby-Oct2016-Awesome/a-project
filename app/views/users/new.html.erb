@@ -22,7 +22,9 @@
 </div>
 
 	<%= f.submit "Create Account", class: 'btn btn-secondary' %>
-	<% end %>
+	<% end %> <br>
+
+	<p>Already a user? <%= link_to "Sign In", new_session_path %>
 
 <form action="/users" method="post">
 

@@ -32,4 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'edit_credit_card' => "users#edit_credit_card"
+  patch 'update_credit_card' => "users#update_credit_card"
 end
