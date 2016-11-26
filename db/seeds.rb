@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
+User.create(name: 'John Apple', email: 'john@example.com', password: '12345678')
+User.create(name: 'Andrew Chun', email: 'andrew@example.com', password: '12345678')
+User.create(name: 'Steve Cho', email: 'steve@example.com', password: '12345678')
+User.create(name: 'Huy Dang', email: 'Huy@example.com', password: '12345678')
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
@@ -22,13 +22,13 @@ station_list.each do |name, latitude, longitude|
 end
 
 user_list = [
-  ["test1", "test1@test.com", "test1"],
-  ["test2", "test2@test.com", "test2"],
-  ["test3", "test3@test.com", "test3"]
+  ["test1", "test1@test.com", "test1", 2500],
+  ["test2", "test2@test.com", "test2", 2500],
+  ["test3", "test3@test.com", "test3", 2500]
 ]
 
-user_list.each do |name, email, password|
-  User.create( name: name, email: email, password: password )
+user_list.each do |name, email, password, aircredit|
+  User.create( name: name, email: email, password: password, air_credit: aircredit)
 end
 
 trip_list = [

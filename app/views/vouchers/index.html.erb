@@ -1,30 +1,8 @@
-<p id="notice"><%= notice %></p>
 <h1>Vouchers</h1>
-<table class="table">
-  <thead class="thead-inverse">
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Quantity</th>
-      <th>%Off</th>
-      <th>Expired at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @vouchers.each do |voucher| %>
-      <tr>
-        <td><%= voucher.name %></td>
-        <td><%= voucher.voucher_type %></td>
-        <td><%= voucher.quantity %></td>
-        <td><%= voucher.discount_info %></td>
-        <td><%= voucher.expired_at.strftime("%d %b  %Y at %I:%M%p") %></td>
-        <td><%= link_to 'Show', voucher %></td>
-        <td><%= link_to 'Edit', edit_voucher_path(voucher) %></td>
-        <td><%= link_to 'Destroy', voucher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'Add Voucher', new_voucher_path %>
+<% if current_user %>
+  <p>You currently have <%= current_user.air_credit %> AirCredit</p>
+<% else %>
+  <p>You currently have 0 AirCredit. <%= link_to "Learn how to get AirCredit to get free vouchers!", instructions_vouchers_path %> </p>
+<% end %>
+<%= link_to 'My Vouchers', orders_path, class: 'btn btn-secondary' %>
+<%= render partial: "vouchers", locals: {voucher: @vouchers }%>

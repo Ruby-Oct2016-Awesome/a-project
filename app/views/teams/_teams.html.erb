@@ -1,0 +1,12 @@
+<% team.each do |t| %>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= t.name %></h4>
+    <p class="card-text">Team Members:</p>
+    <% t.team_users.each do |f| %>
+      <p class="card-text"><strong><%= f.user.name %></strong></p>
+    <% end %>
+    <%= link_to 'Add Members', team_team_user_path(t, t.team_users), { style: "float: right;", class: "btn btn-primary"} %>
+  </div>
+</div>
+<% end %>

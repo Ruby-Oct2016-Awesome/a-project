@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
-  belongs_to :user
+	validates :name, uniqueness: true 
   has_many :users
+  has_many :team_users
 end
