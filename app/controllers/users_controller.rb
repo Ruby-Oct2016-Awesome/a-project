@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_user, :only => [:code, :nearby, :voucher, :personal, :setting]
 
-  
+
 
   #below necessary?
   def index
@@ -45,8 +45,8 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       session[:user_id] = @user.id
-      flash[:success] = "Password successfully updated"
-      redirect_to root_path
+      flash[:success] = "Account successfully updated"
+      redirect_to :back
     else
       flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
       render 'edit'
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:avatar, :name, :email, :password, :password_confirmation)
   end
 
   def user_cc_params
