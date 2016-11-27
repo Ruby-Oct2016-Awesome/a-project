@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-	#before_save :default_values
+	before_save :default_values
 	#attr_accessor :air_credit 
 
 	has_secure_password

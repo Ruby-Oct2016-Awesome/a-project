@@ -60,7 +60,6 @@ gem 'bootstrap-datepicker-rails'
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'mini_magick'	
-gem 'fusioncharts-rails'	
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
