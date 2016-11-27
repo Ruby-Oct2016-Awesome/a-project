@@ -1,1 +1,3 @@
-<%= link_to 'Go Back To Vouchers', vouchers_path, class: "btn btn-secondary" %>
+<% unless @vouchers.any? %>
+	<p class='center'> You don't have any vouchers in your inventory. Please redeem a voucher to see it on your list</p>
+<% end %>

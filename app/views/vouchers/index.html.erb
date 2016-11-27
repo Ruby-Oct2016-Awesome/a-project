@@ -1,8 +1,9 @@
 <h1>Vouchers</h1>
 <% if current_user %>
-  <p>You currently have <%= current_user.air_credit %> AirCredit</p>
+  <p class='center'>You currently have <%= current_user.air_credit %> AirCredit</p>
 <% else %>
-  <p>You currently have 0 AirCredit. <%= link_to "Learn how to get AirCredit to get free vouchers!", instructions_vouchers_path %> </p>
+  <p class='center'>You currently have 0 AirCredit. <%= link_to "Learn how to get AirCredit to get free vouchers!", instructions_vouchers_path %> </p>
 <% end %>
-<%= link_to 'My Vouchers', orders_path, class: 'btn btn-secondary' %>
-<%= render partial: "vouchers", locals: {voucher: @vouchers }%>
+<div class='row'>
+	<%= render partial: "vouchers", locals: {voucher: @vouchers}%>
+</div>

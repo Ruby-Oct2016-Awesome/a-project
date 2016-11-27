@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if @user.persisted?
       session[:user_id] = @user.id
       flash[:success] = "Registered successfully"
-      redirect_to root_path
+      redirect_to code_users_path
     else
       flash.now[:error] = "Error: #{@user.errors.full_messages.to_sentence}"
       render 'new'

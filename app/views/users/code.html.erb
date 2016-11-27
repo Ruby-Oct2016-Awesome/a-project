@@ -1,18 +1,39 @@
-<div class="card">
-  <div class="card-block">
-    <img src=<%="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=#{@user.email + @user.created_at.to_s}&choe=UTF-8"%> alt="QR code">
-    <%= image_tag @user.avatar %>
+<div class='row'>
+  <div class='col-lg-8 offset-lg-2 center'>
+    <h6>Please show the code to one of our security guards at AirBike Station</h5>
+    <%=link_to 'Find a nearby station', nearby_users_path, class: 'btn btn-secondary' %>
   </div>
-  <div class="card-block">
-    <h4 class="card-title"> <%= @user.name %> </h4>
+</div>
+<h1 class='center'>AirBike Code</h1>
+<div class='row'>
+  <div class='col-lg-8 offset-lg-2'>
+    <div class="card">
+      <div class="card-block center">
+        <img src=<%="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=#{@user.email + @user.created_at.to_s}&choe=UTF-8"%> alt="QR code">
+        <%= image_tag @user.avatar %>
+      </div>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= @user.email %> </li>
-    <li class="list-group-item"><strong>Member since: </strong> <%= @user.created_at.strftime("%B %d, %Y") %> </li>
-    <li class="list-group-item">What else goes here</li>
-  </ul>
-  <div class="card-block">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+</div>
+<div class='row'>
+  <div class='col-lg-4 offset-lg-2'>
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title"> <%= @user.name %> </h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= @user.email %> </li>
+        <li class="list-group-item"><strong>Member since: </strong> <%= @user.created_at.strftime("%B %d, %Y") %> </li>
+        <li class="list-group-item">What else goes here</li>
+      </ul>
+    </div>
+  </div>
+  <div class='col-lg-4'>
+    <div class="card">
+      <div class="card-block">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
   </div>
 </div>
