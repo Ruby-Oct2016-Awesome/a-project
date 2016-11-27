@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protect_from_forgery with: :null_sessions
-  helper_method :current_user, :authenticate_user
+  helper_method :current_user, :authenticate_user, :authenticate_admin
 
   def current_user
     return @current_user if @current_user
@@ -14,7 +14,15 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     unless current_user
       flash.now[:notice] = "You must be logged in to get full access to our tickets!"
-      redirect_to sessions_path(:new)
+      redirect_to new_session_path
     end
   end
+
+  def authenticate_admin
+    unless current_user.is_admin
+      flash.now[:notice] = "You're not authorized to access this. Stay away from this. I'm serious."
+      redirect_to new_session_path
+    end
+  end
+
 end

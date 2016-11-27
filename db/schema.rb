@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127060234) do
+ActiveRecord::Schema.define(version: 20161127113653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20161127060234) do
     t.integer  "team_id"
     t.integer  "air_credit"
     t.string   "avatar",          default: "http://vignette4.wikia.nocookie.net/dragcave/images/6/6e/No_avatar.jpg/revision/latest?cb=20140427211725"
+    t.boolean  "is_admin",        default: false
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
     t.index ["trip_id"], name: "index_users_on_trip_id", using: :btree

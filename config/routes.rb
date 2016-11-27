@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :voucher
       get :personal
       get :setting
+      get :admin
     end
   end
   resources :orders
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   resources :bicycles
   resources :vouchers do
     resources :orders
-    collection do 
+    collection do
       get :instructions
     end
     member do
