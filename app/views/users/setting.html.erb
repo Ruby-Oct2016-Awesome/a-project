@@ -1,14 +1,49 @@
-<h1 class="display-1">Personal</h1>
-<p>In this page, you will</p>
-
-<% if current_user %>
-	<ul>
-		<li><strong>Instructions: </strong></li>
-		<li>This goes to <%= link_to "code", code_users_path%></li>
-		<li>Upon login, there should be a card display of all the vouchers</li>
-	</ul>
-	  <%= link_to "Change Password", edit_user_path(id: @current_user.id) %> |
-	  <%= link_to "Update Credit Card Information", edit_credit_card_path(id: @current_user.id) %> | <%= link_to "Sign out", sign_out_path, method: 'delete' %>
-<% else %>
-	  <li><%= link_to "Sign up", new_user_path, method: 'delete' %></li>
-<% end %>
+<h1 class="display-1">Account settings</h1>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Account
+        </a>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <p>To view your account info as AirBike Card to show up at Bike Stations, follow Menu -> Code or click this quick <%= link_to "link", code_users_path%> </p>
+        <hr>
+        <%= render 'form', user: current_user %>
+        <hr>
+        <%= link_to "Sign out", sign_out_path, method: 'delete', class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Payment
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        <%= render 'form_cc', user: current_user %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Instruction
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>

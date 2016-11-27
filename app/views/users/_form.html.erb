@@ -1,0 +1,24 @@
+<%= form_for user do |f| %>
+  <%= image_tag user.avatar %>
+  <div class="form-group">
+    <%= f.label :avatar, 'Avatar URL' %>
+    <%= f.text_field :avatar, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, 'Display Name' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, 'Email Address' %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, 'New Password' %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, 'Confirm New Password' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <%= f.submit "Update Profile", class: 'btn btn-primary' %>
+<% end %>
