@@ -13,22 +13,28 @@
       <ul class="nav navbar-nav">
         <% if current_user %>
           <li class="nav-item dropdown float-xs-right">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <%= link_to "Account settings", setting_users_path, class: "dropdown-item" %>
-              <a class="dropdown-item" href="#">Notifications</a>
-              <%= link_to "Log Out #{current_user.name}", sign_out_path, method: 'delete', class: "dropdown-item" %>
+              <%= link_to "My Account", setting_users_path, class: "dropdown-item" %>
+              <%= link_to "Instructions", instructions_vouchers_path, class: "dropdown-item" %>
+              <%= link_to "Log Out", sign_out_path, method: 'delete', class: "dropdown-item" %>
             </div>
           </li>
-          <li class="nav-item dropdown float-xs-right">
-            <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-              <%= link_to "Code", code_users_path, class: "dropdown-item" %>
-              <%= link_to "Nearby Stations", nearby_users_path, class: "dropdown-item" %>
-              <%= link_to "Vouchers", vouchers_path, class: "dropdown-item" %>
-              <%= link_to "Personal", personal_users_path, class: "dropdown-item" %>
-            </div>
-          </li>
+              <li class='nav-item'>
+                <%= link_to "My Vouchers", orders_path , class: "nav-link" %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to "Personal Data", personal_users_path, class: "nav-link" %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to "Access Code", code_users_path, class: "nav-link" %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to "Vouchers", vouchers_path, class: "nav-link" %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to "Nearby Stations", nearby_users_path, class: "nav-link" %>
+              </li>
           <% if current_user.is_admin %>
             <li class="nav-item float-xs-right">
               <%= link_to "Admin", admin_users_path, class: "nav-link" %>

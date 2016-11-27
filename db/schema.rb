@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161127113653) do
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "code"
     t.index ["user_id", "voucher_id"], name: "index_orders_on_user_id_and_voucher_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
     t.index ["voucher_id"], name: "index_orders_on_voucher_id", using: :btree
