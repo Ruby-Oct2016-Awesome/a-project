@@ -6,9 +6,11 @@ class OrdersController < ApplicationController
 	end
 
 	def show
+
 	end
 
 	def new
+		@code = rand(999999)
 		@order = Order.new
 		@voucher = Voucher.find(params[:voucher_id])
 		# new_aircredit = current_user.air_credit - @voucher.aircredit_price
@@ -24,6 +26,9 @@ class OrdersController < ApplicationController
 	# 	@voucher = Voucher.find(params[:voucher_id])
 	# 	@order = Order.new
 	# end
+
+	def purchase
+	end
 
 	def create
 		# @voucher = Voucher.find(params[:voucher_id])
@@ -52,7 +57,7 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
-	  params.require(:order).permit(:user_id, :voucher_id) 	
+	  params.require(:order).permit(:user_id, :voucher_id, :code) 	
 	end
 
 

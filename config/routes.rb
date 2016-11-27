@@ -34,9 +34,11 @@ Rails.application.routes.draw do
     resources :orders
     collection do
       get :instructions
+      get :my_vouchers
     end
     member do
       get :redeem
+      get :purchase
     end
   end
 

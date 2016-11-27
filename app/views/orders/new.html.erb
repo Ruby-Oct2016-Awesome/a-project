@@ -10,7 +10,9 @@
     <%= form_for @order do |f| %>	
     	<%= f.hidden_field :user_id, value: current_user.id %>
     	<%= f.hidden_field :voucher_id, value: @voucher.id %>
-			<%= f.submit "Use AirCredit", class: "btn btn-primary" %>
-		<% end %>
+        <%= f.hidden_field :code, value: @code %>
+        </br>
+		<%= f.submit "Use AirCredit", class: "btn btn-primary" %>
+	<% end %>
    </div>
 </div>

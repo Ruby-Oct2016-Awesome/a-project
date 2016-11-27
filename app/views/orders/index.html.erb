@@ -1,3 +1,6 @@
-<%= render partial: 'vouchers', locals: {voucher: @vouchers} %>
-<%= link_to 'Back To Vouchers', vouchers_path, class: 'btn btn-secondary' %>
-
+<% unless @vouchers.any? %>
+	<p class='center'> You don't have any vouchers. Please redeem a voucher to see it on your list</p>
+<% end %>
+<div class='row'>
+	<%= render partial: 'vouchers', locals: {voucher: @vouchers} %>
+</div>
