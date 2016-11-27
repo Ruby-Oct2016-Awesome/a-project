@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   require 'rqrcode'
 
-  before_filter :authenticate_user, :only => [:code, :nearby, :voucher, :personal, :setting]
-
-
+  before_filter :authenticate_user, :only => [:code, :nearby, :voucher, :personal, :setting, :admin]
+  before_filter :authenticate_admin, :only => [:admin]
 
   #below necessary?
   def index
@@ -68,7 +67,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def voucher
   end
 
@@ -79,6 +77,9 @@ class UsersController < ApplicationController
     if current_user.credit_card = nil
       redirect_to edit_credit_card_path(id: @current_user.id)
     end
+  end
+
+  def admin
   end
 
   private
