@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  require 'rqrcode'
+  #require 'rqrcode'
 
   before_filter :authenticate_user, :only => [:code, :nearby, :voucher, :personal, :setting]
 
