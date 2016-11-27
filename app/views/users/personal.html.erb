@@ -1,49 +1,43 @@
 <h1>Personal Data</h1>
-<div class='row'>
-  <div class='col-lg-6 offset-lg-3'>
-    <div id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="card">
-        <div class="card-header" role="tab" id="headingOne">
-          <h5 class="mb-0">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Line chart
-            </a>
-          </h5>
-        </div>
-        <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
-          <div class="card-block">
-            <%= line_chart Trip.group(:user_id).count %>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" role="tab" id="headingTwo">
-          <h5 class="mb-0">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Pie chart
-            </a>
-          </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="card-block">
-            <%= pie_chart Bicycle.group(:station_id).count %>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" role="tab" id="headingThree">
-          <h5 class="mb-0">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Bar chart
-            </a>
-          </h5>
-        </div>
-        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="card-block">
-            <%= bar_chart Trip.group(:user_id).count %>
-          </div>
-        </div>
+<div class="row">
+<div class="col-lg-6 offset-lg-3">
+<%= link_to 'My Trips', user_trips_path(current_user.id) %> |
+<%= link_to 'Community Page', community_path %>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h3>Distance biked (km) by day</h3> 
+        </a>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <p><strong>Total Distance: </strong> <h3><%= @trips.sum(:distance) %> kilometers </h3></p>
+
+      <div class="card-block">
+        <%= line_chart @distance_by_day %>
       </div>
     </div>
   </div>
+
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Air Credit
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+    <%= bar_chart @air_credit_by_day %>
+      </div>
+  <strong>Total Air Credit: </strong> <%= @trips.sum(:air_credit_earned) %> points
+
+    </div>
+  </div>
+</div>
+</div>
 </div>

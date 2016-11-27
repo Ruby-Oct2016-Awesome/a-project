@@ -38,8 +38,8 @@
 </p>
 
 <p>
-  <strong>Distance Traveled (mi):</strong>
-  <%= Geocoder::Calculations.distance_between([@trip.start_latitude, @trip.start_longitude], [@trip.end_latitude, @trip.end_longitude]).round(2) %>
+  <strong>Distance Traveled (km):</strong>
+  <%= (Geocoder::Calculations.distance_between([@trip.start_latitude, @trip.start_longitude], [@trip.end_latitude, @trip.end_longitude])*1.61).round(2) %>
 </p>
 
 <p>
