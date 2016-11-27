@@ -177,7 +177,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha5)
   bootstrap-datepicker-rails
   byebug
-  chartkick (~> 1.2.4)
+  chartkick
   coffee-rails (~> 4.2)
   geocoder
   jbuilder (~> 2.5)

@@ -17,4 +17,6 @@
 //= require bootstrap-datepicker
 //= require turbolinks
 //= require geolocation
+//= require highcharts
+//= require chartkick
 //= require_tree .

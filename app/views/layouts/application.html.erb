@@ -3,6 +3,7 @@
   <head>
     <title>Airbike</title>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -49,12 +50,8 @@
         </div>
       <% end %>
     <% end %>
-
-
     <div class='container'>
       <%= yield %>
     </div>
-
-
   </body>
 </html>
