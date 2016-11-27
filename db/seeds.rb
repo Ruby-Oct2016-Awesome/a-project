@@ -15,7 +15,7 @@ station_list = [
   ["Vincom Center B", "10.777943", "106.701213"],
   ["24 To Go", "10.771232", "106.692958"],
   ["The Coffee House", "10.771048", "106.681261"],
-  ["CirCo Coworking Space", "10.771048", "106.681261"]
+  ["CirCo Coworking Space", "10.760352", "106.698831"]
 ]
 
 user_list = [
@@ -58,6 +58,22 @@ trip2_list = [
 ]
 
 trip2_list.each do |user_id, start_lat, start_long, end_lat, end_long, created_at|
+  Trip.create( user_id: user_id, start_latitude: start_lat, start_longitude: start_long, end_latitude: end_lat, end_longitude: end_long, created_at: created_at)
+end
+
+trip3_list = [
+  ["3", "10.779825", "106.692531", "10.773229", "106.685301", DateTime.now - 2.days], #from coderschool office to petrolimex
+  ["2", "10.781915", "106.69796", "10.771232", "106.692958", DateTime.now - 3.days], #from gym to 24 To Go
+  ["3", "10.778621", "106.698901", "10.780449", "106.687962", DateTime.now - 4.days], #from caphedenda to WORK SAIGON
+  ["4", "10.780449", "106.687962", "10.781915", "106.69796", DateTime.now - 5.days], #from worksaigon to gym
+  ["2", "10.7731904", "106.6850083", "10.780449", "106.687962", DateTime.now - 6.days], #from Petrolimex to WORK SAIGON
+  ["4", "10.7731904", "106.6850083", "10.781915", "106.69796", DateTime.now - 7.days], #from Petrolimex to gym
+  ["2", "10.771048", "106.681261", "10.771048", "106.681261", DateTime.now - 7.days], #cofee house to circo
+  ["4", "10.771048", "106.681261", "10.777943", "106.701213", DateTime.now - 6.days], #cofee house to vincom
+  ["7", "10.780449", "106.687962", "10.771048", "106.681261", DateTime.now - 6.days] #work saigon to circo
+]
+
+trip3_list.each do |user_id, start_lat, start_long, end_lat, end_long, created_at|
   Trip.create( user_id: user_id, start_latitude: start_lat, start_longitude: start_long, end_latitude: end_lat, end_longitude: end_long, created_at: created_at)
 end
 
