@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do
     resources :orders, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :trips, only: [:index, :show] do
+      collection do
+        get 'distance_by_day'
+      end
+    end
     collection do
       get :code
       get :nearby

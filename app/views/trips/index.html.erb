@@ -1,41 +1,56 @@
-<h1>Trips</h1>
+<h1>My Trips</h1>
 
-<%#= line_chart @trips.group_by_week(:created_at).count %>
+
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Distance Biked (km) by Day</h3>
+    <%= line_chart @distance_by_day %>
+  </div>
+  <p><strong>Total Distance: </strong> <br><%= @trips.sum(:distance) %> kilometers</p>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Air Credit Earned by Day</h3>
+    <%= column_chart @air_credit_by_day %>
+  </div>
+  <p><strong>Total Air Credit: </strong> <br><%= @trips.sum(:air_credit_earned  ) %> points</p>
+</div>
+
 <%# need to calculate total distance... %>
 
+<!--
 <table>
   <thead>
     <tr>
       <th>Trip ID</th>
-      <th>User ID</th>
       <th>Bicycle ID</th>
-      <th>Starting Latitude</th>
-      <th>Starting Longitude</th>
-     <th>Ending Latitude</th>
-     <th>Ending Longitude</th>
-     <th>Distance Traveled (mi)</th>
+     <th>Distance Traveled (km)</th>
+     <th>Air Credit Earned</th>
      <th>Time Completed</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @trips.each do |trip| %>
+    <%# @trips.each do |trip| %>
       <tr>
-      	<td><%= trip.id %></td>
-        <td><%= trip.user_id %></td>
-        <td><%= trip.bicycle_id %></td>
-        <td><%= trip.start_latitude %></td>
-        <td><%= trip.start_longitude %></td>
-        <td><%= trip.end_latitude %></td>
-        <td><%= trip.end_longitude %></td>
-        <td><%= Geocoder::Calculations.distance_between([trip.start_latitude, trip.start_longitude], [trip.end_latitude, trip.end_longitude]).round(2) %></td>
-        <td><%= trip.created_at %></td>
-        <td><%= link_to 'Show', trip %></td>
+      	<td><%#= trip.id %></td>
+        <td><%#= trip.bicycle_id %></td>
+        <td><%#= trip.distance %></td>
+        <td><%#= trip.air_credit_earned %></td>
+        <td><%#= trip.created_at %></td>
+
+        <td><%#= link_to 'Show', trip %></td>
         <%#<%= link_to 'Edit', edit_trip_path(trip) %>
 
         <%#<%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
+--> 

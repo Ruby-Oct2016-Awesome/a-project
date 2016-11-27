@@ -47,6 +47,9 @@ end
 gem 'geocoder'
 
 gem 'chartkick', '~> 1.2.4'
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -57,6 +60,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'mini_magick'	
+gem 'fusioncharts-rails'	
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

@@ -1,0 +1,15 @@
+    <% @trips.each do |trip| %>
+      <tr>
+      	<td><%= trip.id %></td>
+        <td><%= trip.user_id %></td>
+        <td><%= trip.bicycle_id %></td>
+        <td><%= trip.start_latitude %></td>
+        <td><%= trip.start_longitude %></td>
+        <td><%= trip.end_latitude %></td>
+        <td><%= trip.end_longitude %></td>
+        <td><%= Geocoder::Calculations.distance_between([trip.start_latitude, trip.start_longitude], [trip.end_latitude, trip.end_longitude]).round(2) %></td>
+        <td><%= trip.created_at %></td>
+        <td><%= link_to 'Show', trip %></td>
+
+
+        #hold on with this shit.... may use later or delete
