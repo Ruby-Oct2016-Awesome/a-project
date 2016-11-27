@@ -71,6 +71,10 @@ class UsersController < ApplicationController
   end
 
   def personal
+    @distance_by_day = Trip.where(user_id: current_user.id).group_by_day(:created_at).sum(:distance)
+    @trips = Trip.where(user_id: current_user.id) 
+    @air_credit_by_day = Trip.where(user_id: current_user.id).group_by_day(:created_at, format: "%m-%d").sum(:air_credit_earned)
+    
   end
 
   def setting

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # get "/pages/:page" => "pages#show"  # :page as a signle value
   get "list" => "pages#index"
 
+  get 'community' => "home#community"
+  
   resources :team
   resources :sessions, only: [:new, :create, :destroy]
   resources :users do

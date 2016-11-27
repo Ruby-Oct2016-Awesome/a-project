@@ -6,7 +6,36 @@
     <h3>Distance Biked (km) by Day</h3>
     <%= line_chart @distance_by_day %>
   </div>
-  <p><strong>Total Distance: </strong> <br><%= @trips.sum(:distance) %> kilometers</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Trip ID</th>
+       <th>Distance Traveled (km)</th>
+       <th>Air Credit Earned</th>
+       <th>Day</th>
+
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @trips.each do |trip| %>
+        <tr>
+          <td><%= trip.id %></td>
+          <td><%= trip.distance %></td>
+          <td><%= trip.air_credit_earned %></td>
+          <td><%= trip.created_at.strftime("%Y-%m-%d") %></td>
+          <td> </td>
+          <td><%= link_to 'View', trip %></td>
+          <%#<%= link_to 'Edit', edit_trip_path(trip) %>
+
+          <%#<%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <p><strong>Total Distance: </strong> <%= @trips.sum(:distance) %> kilometers</p>
 </div>
 
 
@@ -22,35 +51,7 @@
 
 <%# need to calculate total distance... %>
 
-<!--
-<table>
-  <thead>
-    <tr>
-      <th>Trip ID</th>
-      <th>Bicycle ID</th>
-     <th>Distance Traveled (km)</th>
-     <th>Air Credit Earned</th>
-     <th>Time Completed</th>
+<%= link_to "Go Back", personal_users_path %>
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <%# @trips.each do |trip| %>
-      <tr>
-      	<td><%#= trip.id %></td>
-        <td><%#= trip.bicycle_id %></td>
-        <td><%#= trip.distance %></td>
-        <td><%#= trip.air_credit_earned %></td>
-        <td><%#= trip.created_at %></td>
 
-        <td><%#= link_to 'Show', trip %></td>
-        <%#<%= link_to 'Edit', edit_trip_path(trip) %>
-
-        <%#<%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </tr>
-    <%# end %>
-  </tbody>
-</table>
---> 
