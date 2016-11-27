@@ -1,12 +1,1 @@
-<h1>Update Credit Card</h1>
-
-<%= form_for @user, url: update_credit_card_path, html: {method: "patch"} do |f| %>
-  <div class="field">
-    <%= f.label :credit_card, "Credit card number" %><br />
-    <%= f.text_field :credit_card %>
-  </div>
-
-  <div class="action_container">
-    <%= f.submit "Update Credit Card Information" %>
-  </div>
-<% end %>
+<%= render 'form', user: current_user %>

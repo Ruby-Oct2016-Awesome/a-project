@@ -3,6 +3,7 @@
   <head>
     <title>Airbike</title>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -28,6 +29,11 @@
               <%= link_to "Personal", personal_users_path, class: "dropdown-item" %>
             </div>
           </li>
+          <% if current_user.is_admin %>
+            <li class="nav-item float-xs-right">
+              <%= link_to "Admin", admin_users_path, class: "nav-link" %>
+            </li>
+          <% end %>
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
@@ -49,12 +55,8 @@
         </div>
       <% end %>
     <% end %>
-
-
     <div class='container'>
       <%= yield %>
     </div>
-
-
   </body>
 </html>

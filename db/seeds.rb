@@ -29,6 +29,8 @@ user_list = [
 user_list.each do |name, email, password, aircredit|
   User.create( name: name, email: email, password: password, air_credit: aircredit)
 end
+# add admin account
+User.create(name: "Administrator", email: "admin@airbike.com", password: "admin", is_admin: true )
 
 trip_list = [
   ["1", "10.779825", "106.692531", "10.773229", "106.685301", DateTime.now - 10.minutes], #from coderschool office to petrolimex
