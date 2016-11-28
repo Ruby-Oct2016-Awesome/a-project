@@ -6,7 +6,7 @@
     <%= javascript_include_tag "https://www.google.com/jsapi" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
   <body>
     <nav class="navbar navbar-light bg-faded">
       <a class="navbar-brand" href="/">AirBike</a>
@@ -15,9 +15,9 @@
           <li class="nav-item dropdown float-xs-right">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-              <%= link_to "My Account", setting_users_path, class: "dropdown-item" %>
-              <%= link_to "Instructions", instructions_vouchers_path, class: "dropdown-item" %>
-              <%= link_to "Log Out", sign_out_path, method: 'delete', class: "dropdown-item" %>
+              <%= link_to "My Account", setting_users_path, class: "dropdown-item black" %>
+              <%= link_to "Instructions", instructions_vouchers_path, class: "dropdown-item black" %>
+              <%= link_to "Log Out", sign_out_path, method: 'delete', class: "dropdown-item black" %>
             </div>
           </li>
               <li class='nav-item'>

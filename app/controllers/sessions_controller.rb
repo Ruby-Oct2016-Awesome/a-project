@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if @user = User.find_by(email: params[:email]) and @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:success] = "Logged in"
-      redirect_to root_path
+      redirect_to code_users_path
     else
       flash.now[:error] = "Invalid username or password"
       render 'new'

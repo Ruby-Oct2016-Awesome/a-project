@@ -1,10 +1,12 @@
-
-<h1>Personal Data</h1>
 <div class="row">
-<div class="col-lg-6 offset-lg-3">
-
-<%= link_to 'My Trips', user_trips_path(current_user.id) %> |
-<%= link_to 'Community Page', community_path %>
+  <div class ="col-lg-3">
+  <div class ='title'>
+    <h1>Personal Data</h1>
+  </div>
+    <%= link_to 'My Trips', user_trips_path(current_user.id) %> |
+    <%= link_to 'Community Page', community_path %>
+  </div>
+<div class="col-lg-6">
 <div id="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
