@@ -87,10 +87,7 @@ of those sections to manage the look and feel of the site. */
 }
 
 .about-section {
-    height: 100%;
-    padding-top: 50px;
-    text-align: center;
-    /*background: #fff;*/
+    background: #fff;
 }
 
 .instructions-section{
@@ -116,6 +113,7 @@ of those sections to manage the look and feel of the site. */
 
 #slogan_row {
     padding-top: 50px;
+    text-align: right
 }
 
 #down_arrow {
@@ -126,6 +124,16 @@ of those sections to manage the look and feel of the site. */
     margin-bottom: 50px;
 }
 
+#motobike {
+    float: right;
+    height: 90vh;
+}
+
+#bicycle {
+    float: left;
+    height: 90vh;   
+}
+
 .change-the-world {
   font-family: Raleway;
   font-size: 50px;
@@ -133,12 +141,15 @@ of those sections to manage the look and feel of the site. */
   font-style: normal;
   font-stretch: normal;
   letter-spacing: -0.6px;
-  text-align: right;
   color: #0b6b78;
 }
 
 .line {
   margin-left: -15px;
+  border: solid 2px #f46767;
+}
+
+.line2 {
   border: solid 2px #f46767;
 }
 
@@ -160,4 +171,20 @@ of those sections to manage the look and feel of the site. */
   font-stretch: normal;
   text-align: right;
   color: #0b6b78;
+}
+
+.purpose {
+    text-align: left;
+    padding-top: 100px;
+}
+
+.purpose_description {
+  font-family: Roboto;
+  font-size: 25px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.72;
+  letter-spacing: 0.1px;
+  color: #3c3c3c;
 }
