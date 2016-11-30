@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>Scrolling Nav - Start Bootstrap Template</title>
     <!-- Bootstrap Core CSS -->
-<!--     <link href="/assets/stylesheets/scrolling-nav/bootstrap.min.css" rel="stylesheet"> -->
+    <!--     <link href="/assets/stylesheets/scrolling-nav/bootstrap.min.css" rel="stylesheet"> -->
     <!-- Custom CSS -->
     <link href="/assets/stylesheets/scrolling-nav/scrolling-nav.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -22,87 +22,131 @@
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <section id="intro" class="intro-section">
       <div class="container">
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-lg-12">
-              <h1>Change The World</br> One Cycle at a Time</h1>
-              <a class="btn btn-default page-scroll" href="#about">Continue</a>
-          </div>
+            <h1>Change The World</br> One Cycle at a Time</h1>
+          <a class="btn btn-default page-scroll" href="#about">Continue</a>
         </div>
+      </div> -->
+        <!-- logo row -->
+        <div class="row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-2">
+            <img src="/assets/airbike_logo_white_type.svg" alt="AirBike Logo">
+          </div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+          <div class="col-xs-1"></div>
+        </div>
+        <!-- slogan row -->
+        <div id="slogan_row" class="row">
+          <div class="col-xs-5"></div>
+          <div class="col-xs-5 change-the-world">Change the world</div>
+          <div class="col-xs-2"></div>
+        </div>
+        <!-- line row -->
+        <div class="row">
+          <div class="col-xs-5"></div>
+          <div class="col-xs-5">
+            <hr class="line">
+          </div>
+          <div class="col-xs-2"></div>
+        </div>
+        <!-- some texts row -->
+        <div class="row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-4 new_cycler">3,205,943 new cyclers</div>
+          <div class="col-xs-2"></div>
+          <div class="col-xs-3 one-cycle-at-a-time">one cycle at a time</div>
+          <div class="col-xs-2"></div>
+        </div>
+        <!-- down arrow -->
+        <a href="#about" class="page-scroll">
+          <img id="down_arrow" src="/assets/down_arrow.svg" alt="Down Arrow">
+        </a>
       </div>
     </section>
-    </div>
-    <!-- About Section -->
-    <section id="about" class="about-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 offset-lg-2">
-            <h1>AirBike</h1>
-              <p>You have no idea what is AirBike, how it works, so I'm here to help you. We are a kool oganization run by kool team. We would like to do something to improve environment in Saigon, to bring back fresh air to this lovely city. We encourage you use environment friendly mean like bicycle to help reduce air pollution.</p>
-
-          </div>
-          </div>
-  <div class='row'>      
-    <div class="col-lg-8 offset-lg-2">
-      <h1>3 Easy Steps</h1>
-    </div>
   </div>
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <!-- <div class="container">
+    </div> -->
     <div class="row">
-      <div class="col-lg-4 num-style">
-        <h2><span>1: Grab a Bicycle</span></h2>
+      <div class="col-xs-4 ">
+        <div></div>
+        <img id="motobike" src="/assets/motorbike.jpg" alt="motorbike">
       </div>
-      <div class="col-lg-4 num-style">
-        <h2><span>2: Earn AirCredit</span></h2>
+      <div class="col-xs-4 purpose">
+        <p class="change-the-world">Purpose</p>
+        <hr class="line2">
+        <p class="purpose_description">Our mission is to bring clean air to Vietnam. There are many factors to air pollution but the obvious one is the high volume of motobicycles. There are over 7.4 millions motorcyles in Hanoi. Working together, we can create a better environment not for ourselves but for the future generations.</p>
       </div>
-      <div class="col-lg-4 num-stlye">
-        <h2><span>3: Reward Yourself</span></h2>
+      <div class="col-xs-4">
+        <img id="bicycle" src="/assets/bike.jpg" alt="bicycle">
       </div>
     </div>
-    </section>
-    <!-- Instructions -->
-    <section id="instructions" class="instructions-section">
-          <div class='row'>
-            <div class='col-lg-8 offset-lg-2'>
-              <h1>Grab a Bicycle</h1>
-              <p>With or without a registered account, you are able to rent a bicyle.</p>
-              <p>However, I would like to suggest you to regester an account, in order to earn your AirCredit.</p>
-              <a class="btn btn-default page-scroll" href="#services">Earn AirCredit</a>
-            </div>
-          </div>
-    </section>
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Earn AirCredit</h1>
-            <p>For each mile riding on our bicycle, you earn 1 AirCredit point.</p>
-            <p>The more you riding the more AirCredit you earning.</p>
-            <p>With our AirCredit, you can use them to buy food, clothes vouchers and much more.</p>
-            <a class="btn btn-default page-scroll" href="#contact">Reward yourself</a>
-          </div>
+    <div class="row">
+      <div class="col-xs-5"></div>
+      <div class="col-xs-3 ">
+        <a id="down_link" href="#contact" class="page-scroll change-the-world">How To Start</a>
+      </div>
+      <div class="col-xs-4"></div>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-lg-12">
+          <h1>Reward yourself</h1>
+          <p>Use your AirCredit to buy food, clothes vouchers and much more.</p>
+          <p>You earn this, you deserve it, enjoy it.</p>
+          <p>Are you ready to earn your reward by riding with us? What are you waiting for? Click below button</p>
+          <a class="btn btn-default page-scroll" href="<%= new_user_path %>">Sign Up</a>
+        </div> -->
+        <div class="col-xs-4">
+          <img class="step_icon" src="/assets/bicycle_icon_select.png" alt="bicycle">
+        </div>
+        <div class="col-xs-4">
+          <img class="step_icon" src="/assets/aircredit_icon_select.png" alt="bicycle">
+        </div>
+        <div class="col-xs-4">
+          <img class="step_icon" src="/assets/reward_icon_select.png" alt="bicycle">
         </div>
       </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Reward yourself</h1>
-            <p>Use your AirCredit to buy food, clothes vouchers and much more.</p>
-            <p>You earn this, you deserve it, enjoy it.</p>
-            <p>Are you ready to earn your reward by riding with us? What are you waiting for? Click below button</p>
-            <a class="btn btn-default page-scroll" href="<%= new_user_path %>">Sign Up</a>
-          </div>
-        </div>
+      <div class="row">
+        <div class="col-xs-4 grab-an-airBike">Grab an AirBike</div>
+        <div class="col-xs-4 grab-an-airBike">Earn AirCredit</div>
+        <div class="col-xs-4 grab-an-airBike">Reward Yourself</div>
       </div>
-    </section>
-    <!-- jQuery -->
-    <script src="/assets/javascripts/scrolling-nav/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/assets/javascripts/scrolling-nav/bootstrap.min.js"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="/assets/javascripts/scrolling-nav/jquery.easing.min.js"></script>
-    <script src="/assets/javascripts/scrolling-nav/scrolling-nav.js"></script>
-  </body>
+      <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <p class="how_to_description">Visit one of our stations and we’ll help you get started with your airbike. Make sure you have a credit card for security purposes</p>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div id="signup_row" class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <a class="signup" href="<%= new_user_path %>">Sign Up</a>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+    </div>
+  </section>
+  <!-- jQuery -->
+  <script src="/assets/javascripts/scrolling-nav/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="/assets/javascripts/scrolling-nav/bootstrap.min.js"></script>
+  <!-- Scrolling Nav JavaScript -->
+  <script src="/assets/javascripts/scrolling-nav/jquery.easing.min.js"></script>
+  <script src="/assets/javascripts/scrolling-nav/scrolling-nav.js"></script>
+</body>
 </html>
