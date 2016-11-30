@@ -13,7 +13,7 @@ class Trip < ApplicationRecord
     end
 
     def calculate_user_air_credit
-        
+        current_user.air_credit += self.air_credit_earned
     end # ** NEED TO DO SOMETHING TO AUTOMATICALLY UPDATE ATTR_ACCESSOR User.air_credit
 
     def distance_by_day
