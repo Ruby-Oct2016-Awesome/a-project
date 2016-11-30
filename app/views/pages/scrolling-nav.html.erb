@@ -79,6 +79,7 @@
     </div> -->
     <div class="row">
       <div class="col-xs-4 ">
+        <div></div>
         <img id="motobike" src="/assets/motorbike.jpg" alt="motorbike">
       </div>
       <div class="col-xs-4 purpose">
@@ -93,47 +94,50 @@
     <div class="row">
       <div class="col-xs-5"></div>
       <div class="col-xs-3 ">
-        <a id="down_link" href="#instructions" class="page-scroll change-the-world">How To Start</a>
+        <a id="down_link" href="#contact" class="page-scroll change-the-world">How To Start</a>
       </div>
       <div class="col-xs-4"></div>
-    </div>
-  </section>
-  <!-- Instructions -->
-  <section id="instructions" class="instructions-section">
-    <div class='row'>
-      <div class='col-lg-8 offset-lg-2'>
-        <h1>Grab a Bicycle</h1>
-        <p>With or without a registered account, you are able to rent a bicyle.</p>
-        <p>However, I would like to suggest you to regester an account, in order to earn your AirCredit.</p>
-        <a class="btn btn-default page-scroll" href="#services">Earn AirCredit</a>
-      </div>
-    </div>
-  </section>
-  <!-- Services Section -->
-  <section id="services" class="services-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1>Earn AirCredit</h1>
-          <p>For each mile riding on our bicycle, you earn 1 AirCredit point.</p>
-          <p>The more you riding the more AirCredit you earning.</p>
-          <p>With our AirCredit, you can use them to buy food, clothes vouchers and much more.</p>
-          <a class="btn btn-default page-scroll" href="#contact">Reward yourself</a>
-        </div>
-      </div>
     </div>
   </section>
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <!-- <div class="col-lg-12">
           <h1>Reward yourself</h1>
           <p>Use your AirCredit to buy food, clothes vouchers and much more.</p>
           <p>You earn this, you deserve it, enjoy it.</p>
           <p>Are you ready to earn your reward by riding with us? What are you waiting for? Click below button</p>
           <a class="btn btn-default page-scroll" href="<%= new_user_path %>">Sign Up</a>
+        </div> -->
+        <div class="col-xs-4">
+          <img class="step_icon" src="/assets/bicycle_icon_select.png" alt="bicycle">
         </div>
+        <div class="col-xs-4">
+          <img class="step_icon" src="/assets/aircredit_icon_select.png" alt="bicycle">
+        </div>
+        <div class="col-xs-4">
+          <img class="step_icon" src="/assets/reward_icon_select.png" alt="bicycle">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 grab-an-airBike">Grab an AirBike</div>
+        <div class="col-xs-4 grab-an-airBike">Earn AirCredit</div>
+        <div class="col-xs-4 grab-an-airBike">Reward Yourself</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <p class="how_to_description">Visit one of our stations and we’ll help you get started with your airbike. Make sure you have a credit card for security purposes</p>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+      <div id="signup_row" class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <a class="signup" href="<%= new_user_path %>">Sign Up</a>
+        </div>
+        <div class="col-xs-4"></div>
       </div>
     </div>
   </section>

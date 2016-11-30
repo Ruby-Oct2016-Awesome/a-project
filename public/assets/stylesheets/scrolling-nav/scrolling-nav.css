@@ -90,25 +90,15 @@ of those sections to manage the look and feel of the site. */
     background: #fff;
 }
 
-.instructions-section{
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-
-}
-
-.services-section {
-    height: 100%;
-    padding-top: 150px;
-    text-align: center;
-    /*background: #fff;*/
-}
-
 .contact-section {
-    height: 100%;
-    padding-top: 150px;
+    display: block;
+    position: relative;git 
     text-align: center;
-    /*background: #eee;*/
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    background-size: cover;
+    background-image: url(/assets/bike_station.jpeg);
 }
 
 #slogan_row {
@@ -187,4 +177,51 @@ of those sections to manage the look and feel of the site. */
   line-height: 1.72;
   letter-spacing: 0.1px;
   color: #3c3c3c;
+}
+
+.step_icon {
+    height: 96px;
+    width: auto;
+}
+
+.grab-an-airBike {
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #ffffff;
+}
+
+.how_to_description {
+  font-family: Roboto;
+  font-size: 27px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 75px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+#signup_row {
+    padding-top: 75px;
+}
+
+.signup {
+  font-family: Roboto;
+  font-size: 27px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  color: #ffffff;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 125px;
+  padding-right: 125px;
+  border-radius: 50px;
+  background-color: #f64848;
 }
