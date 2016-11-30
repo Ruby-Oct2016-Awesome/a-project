@@ -14,21 +14,21 @@
 </div>
 <h1>Leaderboard</h1>
 
-<table>
+<table class="table">
 	<thead>
-		<th>Username</th>
-		<th>Total Distance</th>
+		<tr>
+			<th>Username</th>
+			<th>Total Distance</th>
+		</tr>
 	</thead>
 
-<tbody>
-	<tr>
+	<tbody>
+		<tr>
 		<% @leaderboard.each do |a| %>
-		<td><%= a[0] %></td>
-		<td><%= a[1] %></td>
-			</tr>
+			<td><%= a[0] %></td>
+			<td><%= a[1] %></td>
+		</tr>
 		<% end %>
-
-
 	</tbody>
 
 </table>
