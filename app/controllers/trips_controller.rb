@@ -17,6 +17,9 @@ class TripsController < ApplicationController
 	  end
 	end
 
+	def create
+	end
+
 	def show
 	end
 

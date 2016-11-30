@@ -1,17 +1,95 @@
-<h1>I'm in finally</h1>
-<p>Check top-right conner, you will see 2 dropdown controls as below:</p>
-<hr>
-<p>Menu</p>
-<ul>
-  <li>Code: go to Code page</li>
-  <li>Nearby Stations: go to Nearby Stations page</li>
-  <li>Vouchers: go to Vouchers page</li>
-  <li>Personal: go to Personal page</li>
-</ul>
-<hr>
-<p>User</p>
-<ul>
-  <li>Account settings: upload avatar image, change password....</li>
-  <li>Notifications: we will figure out what to do with it</li>
-  <li>Log out: you know what it does</li>
-</ul>
+<h3>Vietnam Community</h3>
+
+<%= line_chart @distance_traveled %>
+
+<p><strong>Total Distance: </strong> <h3><%= @trips.sum(:distance) %> kilometers </h3>
+
+<h1>Nearby Stations</h1>
+<div class='row'>
+	<div class='col-lg-12'>
+		<h5>Map</h5>
+		<div id="map" style="height:400px;width:100%;"></div>
+
+</div>
+</div>
+<h1>Leaderboard</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Total Distance</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+		<% @leaderboard.each do |a| %>
+			<td><%= a[0] %></td>
+			<td><%= a[1] %></td>
+		</tr>
+		<% end %>
+	</tbody>
+
+</table>
+	<script>
+	function initMap() {
+	  var map = new google.maps.Map(document.getElementById('map'), {
+	    center: {lat: 10.781915, lng: 106.69796},
+	    zoom: 14
+	  });
+	  var locations = <%= raw Station.pluck(:name, :latitude, :longitude) %>;
+
+	  var infoWindow = new google.maps.InfoWindow({map: map});
+
+	  // Try HTML5 geolocation.
+	  if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      var pos = {
+	        lat: position.coords.latitude,
+	        lng: position.coords.longitude
+	      };
+
+	      infoWindow.setPosition(pos);
+	      infoWindow.setContent('You are here');
+	      map.setCenter(pos);
+	    }, function() {
+	      handleLocationError(true, infoWindow, map.getCenter());
+	    });
+	  } else {
+	    // Browser doesn't support Geolocation
+	    handleLocationError(false, infoWindow, map.getCenter());
+	  }
+
+	  var marker, i;  
+
+	  for (i = 0; i < locations.length; i++) {
+	    marker = new google.maps.Marker({
+	      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	      //icon: icons.icon,
+	      map: map
+
+	      });
+
+	    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	      return function() {
+	        infowindow.setContent(locations[i][0]);
+	        infowindow.open(map, marker);
+	      }
+	    })(marker, i));
+	  }
+
+	}
+
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+	  infoWindow.setPosition(pos);
+	  infoWindow.setContent(browserHasGeolocation ?
+	                        'Error: The Geolocation service failed.' :
+	                        'Error: Your browser doesn\'t support geolocation.');
+	}
+	
+ 
+ </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwPKgwz5gKHp7lA1Ix1KK5Y95iQR3iR7c&callback=initMap"
+    type="text/javascript"></script>
