@@ -33,7 +33,10 @@
     float: left;
     margin-top: 6%;
 }
-
+.zero-aircredit{
+    color: #ffffff;
+    text-shadow: 1px 1px 10px #888888;
+}
 .month{
     font-weight: 100;    
     font-size: 38px;
@@ -90,6 +93,7 @@
 }
 
 #sidebar-wrapper {
+    box-shadow: 5px 10px 55px 0px #9a9a9a;
     z-index: 1000;
     position: fixed;
     left: 250px;

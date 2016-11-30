@@ -1,14 +1,5 @@
-<div class ="row">
-	<div class="col-lg-4">
-		<div class="title">
-			<h1>Vouchers</h1>
-		</div>
-	</div>
-</div>
 <% if current_user %>
-  <p class='center'>You currently have <%= current_user.air_credit %> AirCredit</p>
 <% else %>
-  <p class='center'>You currently have 0 AirCredit. <%= link_to "Learn how to get AirCredit to get free vouchers!", instructions_vouchers_path %> </p>
 <% end %>
 <div class='row'>
 	<%= render partial: "vouchers", locals: {voucher: @vouchers}%>
