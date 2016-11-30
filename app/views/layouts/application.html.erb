@@ -21,6 +21,7 @@
       </div>
     <% end %>
   <% end %>
+  <% if current_user %>
     <div id="wrapper">
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
@@ -55,7 +56,7 @@
           <li class="sidebar-brand">
           </li>
           <li class='nav-item'>
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", root_path , class: "nav-link" %>
           </li>
           <li class='nav-item'>
             <%= link_to "Access Code", code_users_path, class: "nav-link" %>
@@ -95,6 +96,38 @@
       </div>
       <!-- /#page-content-wrapper -->
     </div>
+  <% else %>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="date-wrapper">
+            <li class="day">
+              <a>
+                <img class = 'logo-size' src="/assets/airbike_white_logo_white_type.svg" alt="AirBike Logo">
+        </ul>
+        <ul class="sidebar-nav">
+          <li>
+            <%= link_to "Sign In", new_session_path, method: 'delete', class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-10 offset-lg-2">
+    <div class='container'>
+      <%= yield %>
+    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+  <% end %>
     </script>
   </body>
 </html>
