@@ -22,6 +22,73 @@
     padding-left: 250px;
 }
 
+.day{
+    font-size: 60px;
+    font-weight: 300;
+    margin-bottom: -20px;
+}
+
+.logo-size{
+    width: 100px;
+    float: left;
+    margin-top: 6%;
+}
+
+.month{
+    font-weight: 100;    
+    font-size: 38px;
+}
+
+.personal-wrapper{
+    z-index: 1000;
+    margin-top: 30%;
+    position: absolute;
+    width: 90%;
+    padding: 0;
+    margin-left: 20px;
+    list-style: none;
+    text-align: left;
+}
+.personal-wrapper li{
+    font-family: "Raleway";
+    color: #fff;
+}
+
+.date-wrapper{
+    z-index: 1000;
+    margin-top: 1%;
+    position: absolute;
+    width: 90%;
+    padding: 0;
+    margin-left: 20px;
+    list-style: none;
+    text-align: right;
+}
+
+.date-wrapper li{
+    font-family: "Raleway";
+    color: #fff;
+}
+
+.name{
+    font-size: 50px;
+    border-bottom: #fff
+    border-style: solid;
+    border-width: 2px;
+}
+
+.line{
+    display: block;
+    border-bottom-color: #fff;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    margin-bottom: 10px;
+}
+
+.air-credit{
+    font-size: 20px;
+}
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
@@ -30,7 +97,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: #00C9D1;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -56,22 +123,27 @@
 
 .sidebar-nav {
     position: absolute;
+    text-align: right;
     top: 0;
-    width: 250px;
-    margin: 0;
+    width: 90%;
+    margin-top: 50%;
     padding: 0;
     list-style: none;
 }
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 40px;
+    line-height: 60px;
 }
 
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    display: block;
+    font-family: 'Raleway';
+    font-weight: 100;
+    font-size: 30px;
+    color: #fff;
 }
 
 .sidebar-nav li a:hover {
@@ -110,7 +182,7 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 32%;
     }
 
     #wrapper.toggled #sidebar-wrapper {
