@@ -1,75 +1,54 @@
-# AirTicket Watcher Service
+# AirBike
 
-<<<<<<< HEAD
-hehehe hahaha
-=======
-Steve Cho making changes. Out. 
->>>>>>> d35cb34c8a4f118dd12ecb2febe2b8e42317ed87
+is a bicycle sharing - web based system where you can... rent a bicycle with easy, of course. More than that, your progress is tracked by Personal Progress Tracking feature and you can earn rewards from our sponsors.
 
-**AirTicket Watcher** is a web based service where you can search cheapest ticket for a specific route within specific time range. With registered account (community, standard or premium) user can subscribe for best deal of specific city or ticket price changes (up or down) based on previous search queries. With AI, user can talk with this service in natural language.
+Above all, Airbike helps increase awareness of air pollution in Vietnam and how bicycling help.
 
-Group Project: Andrew, Steve and Huy
+**Group Project**: Andrew, Steve and Huy
 
-Time spent: **xx** hours spent in total
+**Time spent**: **xx** hours spent in total
 
-URL: **coming soon**
-
-I'm changing something on URL - Steve muddafucka
-
-I will change this again - STeve 
-
-configuration
+URL: https://airbike-ash.herokuapp.com/
 
 ## Features
 
-(below feature is no longer there) 
-### Cheap flight search
-* Flights to popular cities
-    * find popular ONEWAY/RETURN flights from CITY
-    * find popular ONEWAY/RETURN flights from CITY under $PRICE
-    * find popular ONEWAY/RETURN flights from CITY for YYYY/MM/DD to YYYY/MM/DD under $PRICE
-* cheapest flight
-    * find cheapest ONEWAY/RETURN flight from CITY for YYYY/MM/DD to YYYY/MM/DD
-
-### Flight Tracking
-* track ONEWAY/RETURN flights from CITY for YYYY/MM/DD to YYYY/MM/DD
-* show tracked flights
-* cancel tracked flight
-* book the ticket for user when it meet predefined conditions
-
-### Flight deal feed
-* be able to subscribe/unsubscribe to RSS feeds for travel deals to their cities.
-
-### Notification
-* Notify user based on their subscriptions
-* Notify user based on their search history
-* Notify user based on marketing campaigns 
-
 ### User
-* sign up/sign in/sign out
-* user settings
-* user dashboard
-* subscription management
+- [x] Sign up/Sign in
+- [x] Dashboard/Settings
 
-### User Package
-* Community: user can use cheap flight search service, user don't need to create an account to use this service
-* Standard: All above, user have to create an account to be able to use flight tracking, flight deal feed. info only come from flight cached db.
-* Premium: All above, valuable info come from db collected by search team.
+### Bicycle
+- [x] CRUD operations
 
-### Back office
-* Prepare a way so that search team can input/update latest info to human search team database
+### Station
+- [x] CRUD operations
 
-The following **known issues**:
+### Station Map
+- [x] Show stations on map
+- [x] Show station info (address, location, capacity...)
+- [ ] Show station current status (how many availabe bicycles)
 
-* List bugs or things that don't work yet
+### Trip
+- [ ] Rent a bicycle with QR code
+- [ ] Return bicycle
+
+### Personal Progress Tracking
+- [x] Trip history, detail of each trip
+- [ ] AirCredit converting
+
+### Sponser
+- [ ] CRUD operations
+
+### Voucher
+- [x] CRUD operations
+
+### Redeeming Voucher
+- [ ] get voucher
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<!--![Video Walkthrough](walkthrough.gif)-->
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+[VIDEO](https://www.youtube.com/watch?v=pfOolUvDZes)
 
 ## Notes
 
@@ -90,6 +69,4 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-I change something here in branch features/user
-i change something here. hehehe
+    
